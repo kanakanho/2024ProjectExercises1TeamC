@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="stylesheet.css" />
     <title>Start Game</title>
-</head>
+  </head>
 
-<body>
-    <div class="flex">
-        <div class="icon" onclick="Tetris()">
-            <img src="./img/tetris.webp" alt="アイコン">
-            <div class="game-title">テトリス</div>
-        </div>
-        <div class="icon" onclick="Quiz()">
-            <img src="./img/tetris.webp" alt="アイコン">
-            <div class="game-title">クイズ</div>
-        </div>
-        <div class="icon" onclick="what()">
-            <img src="./img/tetris.webp" alt="アイコン">
-            <div class="game-title">テトリス</div>
-        </div>
-        <div class="icon" onclick="What()">
-            <img src="./img/tetris.webp" alt="アイコン">
-            <div class="game-title">クイズ</div>
-        </div>
+  <body>
+    <div class="gameLinkWrapper">
+      <div class="icon" onclick="moveGameWindow('game1')">
+        <img src="./img/tetris.webp" alt="アイコン" />
+        <div class="game-title">テトリス</div>
+      </div>
+      <div class="icon" onclick="moveGameWindow('game2')">
+        <img src="./img/tetris.webp" alt="アイコン" />
+        <div class="game-title">クイズ</div>
+      </div>
+      <div class="icon" onclick="moveGameWindow('game3')">
+        <img src="./img/tetris.webp" alt="アイコン" />
+        <div class="game-title">テトリス</div>
+      </div>
+      <div class="icon" onclick="moveGameWindow('game4')">
+        <img src="./img/tetris.webp" alt="アイコン" />
+        <div class="game-title">クイズ</div>
+      </div>
     </div>
-</body>
-<script src="./index.js"></script>
+  </body>
+  <script src="./index.js"></script>
 </html>
