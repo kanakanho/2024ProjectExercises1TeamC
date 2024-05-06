@@ -12,5 +12,7 @@ const moveGameWindow = (gameName) => {
     } else if(gameName == "game4"){
         console.log("game4");
         window.location = "https://www.akkodis.co.jp/candidate/insight/column_30"
+    } else {
+        console.error("error")
     }
 }
