@@ -14,6 +14,6 @@ const moveGameWindow = (gameName) => {
     console.log("game4");
     window.location = "https://www.akkodis.co.jp/candidate/insight/column_30";
   } else {
-    console.error("遷移エラー");
+    console.error("ゲームが見つからず遷移できませんでした");
   }
 };
