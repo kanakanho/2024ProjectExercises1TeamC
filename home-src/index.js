@@ -6,7 +6,7 @@ const Tetris = () => {
 }
 const Quiz = () => {
     console.log("Quiz");
-    window.location = "https://sushida.net/"
+    window.location = "https://sushida.net/";
 }
 const what = () => {
     console.log("Tetris");

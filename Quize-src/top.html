@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="top.css">
+    <!-- 好みのフォントのリンク -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+    <title>Quize</title>
+</head>
+
+<body>
+
+
+    <div class="title">
+        <p class="title-child">クイズゲーム</p>
+    </div>
+    <div class="choices">
+        <div class="choice" onclick="Beginner()">
+            <h2>初級</h2>
+        </div>
+        <div class="choice" onclick="Intermediate()">
+            <h2>中級</h2>
+        </div>
+        <div class="choice" onclick="advanced()">
+            <h2>上級</h2>
+        </div>
+    </div>
+    <div onclick="play()">
+        <button>遊び方</button>
+    </div>
+
+</body>
+<script src="./top.js"></script>
+
+</html>
