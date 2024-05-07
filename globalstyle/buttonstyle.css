@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.returnButton {
+    cursor: pointer;
+}
+
+.returnButton img {
+    position: fixed;
+    top: 1vw;
+    left: 1vw;
+    width: 80px;
+    height: 80px;
+}
