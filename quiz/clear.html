@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>謎解きクイズ</title>
+        <link rel="stylesheet" href="../globalstyle/buttonstyle.css" />
+        <link rel="stylesheet" href="./style/style.css" />
+        <link rel="stylesheet" href="./style/color.css" />
+    </head>
+    <body>
+        <div class="returnButton" onclick="returnHome()"><img src="../img/returnButton.png" /></div>
+        <div class="circleBox" onClick="clickCenterButton()">
+            <svg class="buttonCircle red" width="160" height="160">
+                <circle cx="80" cy="80" r="80" stroke-width="1"></circle>
+            </svg>
+        </div>
+        <div class="gameMessage">
+            <p class="red">Congratulations !</p>
+        </div>
+    </body>
+    <script src="../globalsrc/returnHome.js"></script>
+    <script src="./src/main.js"></script>
+    <script>
+        function clickCenterButton() {
+            document.querySelector(".circleBox").classList.add("popOutAnimation");
+        }
+    </script>
+</html>
