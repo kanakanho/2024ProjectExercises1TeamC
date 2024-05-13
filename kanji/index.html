@@ -1,14 +1,131 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>漢字クイズ</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .title {
+            font-size: 100px;
+            color: blueviolet;
+        }
+    </style>
 </head>
 
 <body>
+    <main class="quiz outer-block">
+        <div class="inner-block">
+            <h1 class="title">漢字クイズ</h1>
+            <div class="quiz-content">
+                <h1 class="quiz-question-number" id='qn'>第1問<h1>
+            </div>
+            <h2 class="quiz-question" id="qs">呪術</h2>
+            <input class="quiz-answer" onchange="getText()">
 
+            </input>
+            <button onclick="test()">test</button>
+            <button onclick="pushEnter()">決定</button>
+        </div>
+        </div>
+    </main>
 </body>
+<script>
+    let score = 0;
+    let inputValue;
+    let userName, [] = ["太郎", "花子", "花子", "花子", "花子"];
+    let questionnumber = 1;
+    let question, [] = ["呪術", "混沌", "権化", "隻眼", "喰種"];
+    let answer, [] = ["じゅじゅつ", "こんとん", "ごんげ", "せきがん", "ぐーる"]
+    function getText() {
+        inputValue = document.querySelector('.quiz-answer').value;
+        console.log(inputValue)
+
+    }
+
+    function pushEnter() {
+        console.log("ボタン押した")
+        switch (questionnumber) {
+            case 1:
+                if (inputValue == "じゅじゅつ") {
+                    alert('正解！！')
+                    score += 100
+                }
+                else {
+                    alert('残念！！不正解！！')
+                    if (40 < score) score -= 40
+                    else score = 0
+                }
+                console.log(score)
+                break;
+            case 2:
+                if (inputValue == "こんとん") {
+                    alert('正解！！')
+                    score += 100
+                }
+                else {
+                    alert('残念！！不正解！！')
+                    if (40 < score) score -= 40
+                    else score = 0
+                }
+                console.log(score)
+                break;
+            case 3:
+                if (inputValue == "ごんげ") {
+                    alert('正解！！')
+                    score += 100
+                }
+                else {
+                    alert('残念！！不正解！！')
+                    if (40 < score) score -= 40
+                    else score = 0
+                }
+                console.log(score)
+                break;
+            case 4:
+                if (inputValue == "せきがん") {
+                    alert('正解！！')
+                    score += 100
+                }
+                else {
+                    alert('残念！！不正解！！')
+                    if (40 < score) score -= 40
+                    else score = 0
+                }
+                console.log(score)
+                break;
+            case 5:
+                if (inputValue == "ぐーる") {
+                    alert('正解！！')
+                    score += 100
+                }
+                else {
+                    alert('残念！！不正解！！')
+                    if (40 < score) score -= 40
+                    else score = 0
+                }
+                console.log(score)
+                break;
+            default:
+                break;
+        }
+
+        document.getElementById('qn').textContent = '第' + questionnumber + '問'
+        document.getElementById('qs').textContent = question[$questionnumber + 1]
+        questionnumber += 1;
+
+    }
+    const testElement = document.getElementById("test");
+    const test = () => {
+        document.getElementById('test').textContent = 'ようこそ、${questionnumber}へ！'
+    }
+</script>
+<script src="./main..js">
+
+</script>
 
 </html>
