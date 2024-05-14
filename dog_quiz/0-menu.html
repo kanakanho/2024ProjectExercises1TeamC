@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>メニュー</title>
+    <link rel="stylesheet" href="../globalstyle/buttonstyle.css" />
     <style>
       body,
       html {
@@ -62,6 +63,9 @@
     </style>
   </head>
   <body>
+    <div class="returnButton" onclick="returnHome()">
+      <img src="../img/returnButton.png" />
+    </div>
     <link
       href="https://fonts.googleapis.com/earlyaccess/nikukyu.css"
       rel="stylesheet"
@@ -171,5 +175,6 @@
         location.href = "./1-quiz.html";
       }
     </script>
+    <script src="../globalsrc/returnHome.js"></script>
   </body>
 </html>
