@@ -59,9 +59,11 @@
     <script src="./src/main.js"></script>
     <script>
         let pushNum = 0;
-        function clickCenterButton() {
-            pushNum++;
+        let timer = null;
 
+        function clickCenterButton() {
+            clearTimeout(timer);
+            pushNum++;
             // 数字に該当するcircle1 から <defs> の mask を削除
             if (pushNum == 1) {
                 removeMask("circle1");
@@ -72,9 +74,25 @@
             } else if (pushNum == 4) {
                 removeMask("circle4");
             }
+            timer = setTimeout(judgement, 2000);
+        }
 
+        function judgement() {
             if (pushNum == 4) {
                 clear();
+            }
+            putMask("circle1");
+            putMask("circle2");
+            putMask("circle3");
+            putMask("circle4");
+            pushNum = 0;
+        }
+
+        function putMask(idName) {
+            var element = document.getElementById(idName);
+            var circles = element.getElementsByTagName("circle");
+            for (var i = 0; i < circles.length; i++) {
+                circles[i].setAttribute("mask", "url(#donut)");
             }
         }
 
@@ -87,7 +105,7 @@
         }
 
         function clear() {
-            document.querySelector(".circleBox").classList.add("popOutAnimation");
+            document.getElementsByClassName("circleBox")[0].classList.add("popOutAnimation");
             changeStage(1);
         }
     </script>
