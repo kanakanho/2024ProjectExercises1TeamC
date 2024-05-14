@@ -22,13 +22,11 @@
         <div class="inner-block">
             <h1 class="title">漢字クイズ</h1>
             <div class="quiz-content">
-                <h1 class="quiz-question-number" id='qn'>第1問<h1>
+                <h1 class="quiz-question-number" id='qn'>第1問</h1>
             </div>
             <h2 class="quiz-question" id="qs">呪術</h2>
             <input class="quiz-answer" onchange="getText()">
-
             </input>
-            <button onclick="test()">test</button>
             <button onclick="pushEnter()">決定</button>
         </div>
         </div>
@@ -48,6 +46,10 @@
     }
 
     function pushEnter() {
+        judge()
+        changeUI()
+    }
+    function judge() {
         console.log("ボタン押した")
         switch (questionnumber) {
             case 1:
@@ -113,19 +115,15 @@
             default:
                 break;
         }
-
+    }
+    function changeUI() {
+        console.log(questionnumber)
         document.getElementById('qn').textContent = '第' + questionnumber + '問'
-        document.getElementById('qs').textContent = question[$questionnumber + 1]
+
+        document.getElementById('qs').textContent = question[questionnumber - 1]
         questionnumber += 1;
 
     }
-    const testElement = document.getElementById("test");
-    const test = () => {
-        document.getElementById('test').textContent = 'ようこそ、${questionnumber}へ！'
-    }
-</script>
-<script src="./main..js">
-
 </script>
 
 </html>
