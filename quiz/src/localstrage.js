@@ -1,5 +1,5 @@
 function setLocalStrage(number) {
-    const key = "quiiz_clear";
+    const key = "quiz_clear";
     const value = localStorage.getItem(key);
     // 5問正解したらクリア
     // 1問正解した場合
