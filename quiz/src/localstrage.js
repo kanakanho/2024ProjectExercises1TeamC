@@ -4,8 +4,11 @@ function setLocalStrage(number) {
     // 5問正解したらクリア
     // 1問正解した場合
     input = Number(value);
+    if (input === null) {
+        input = 0;
+    }
     console.log("number", number, "input", input);
-    if (number === 1 || value === null || input < 20) {
+    if (number === 1 && input < 20) {
         output = 20;
     } else if (number === 2 && input < 40) {
         output = 40;
