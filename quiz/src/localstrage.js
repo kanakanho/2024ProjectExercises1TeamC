@@ -16,7 +16,7 @@ function setLocalStrage(number) {
     } else if (number === 5 && input < 100) {
         output = 100;
     } else {
-        output = 0;
+        output = input;
     }
     localStorage.setItem(key, output);
 }
