@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>犬種クイズ</title>
+    <style>
+        body{
+            background-image: url('0-background.jpg');
+            background-size: cover;
+        }
+        
+        .quiz1{
+            position: absolute;
+            width: 800px; 
+            height: 50px; 
+            background-color: #63B3ED; 
+            color: #000; 
+            text-align: center; /*テキストを中央揃えにする*/
+            line-height: 50px; /*テキストを四角形の中央に配置する*/
+            top: 20px;
+            left: 50%;
+            transform: translate(-50%);
+            border: 3px solid #000;
+            font-size: 30px;
+        }
+        
+        .Image{
+            position: relative;
+            top: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .buttons {
+            position: absolute;
+            bottom: 100px; 
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 100px; /*ボタン間の間隔*/
+        }
+
+        button{
+            width: 300px;
+            height: 50px;
+            background-color: #4169e1; 
+            color: #fff; 
+            font-size: 20px;
+            border-radius: 30px;
+            border: 3px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <p class="quiz1">問題１</p>
+    <div><img src="1-akitaken.jpg" class="Image"></div>
+    <div class="buttons">
+        <button onclick="huseikai()">柴犬</button>
+        <button onclick="collect()">秋田犬</button>
+    </div>
+    <script>
+        function collect() {
+            console.log("seikai")
+            location.href = "./1-seikai.html"
+        }
+        function huseikai() {
+            console.log("huseikai")
+            location.href = "./1-huseikai.html"
+        }
+    </script>
+</body>
+</html>

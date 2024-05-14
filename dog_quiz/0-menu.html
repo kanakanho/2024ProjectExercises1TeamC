@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>メニュー</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+        background-image: url("0-background.jpg");
+        background-size: cover;
+      }
+
+      .title {
+        position: absolute; /*画面に固定位置*/
+        top: 30%; /*画面上部からの位置*/
+        left: 50%; /*左端を画面中央に配置*/
+        transform: translateX(-50%); /*中央揃え*/
+        z-index: 1; /*前面に表示*/
+        font-size: 70px;
+        font-family: "Courier New", Courier, monospace;
+        white-space: nowrap; /*改行を無効*/
+        background-color: bisque;
+        border-radius: 30px;
+      }
+
+      button {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        width: 1000px;
+        height: 100px;
+        color: black;
+        background-color: #63b3ed;
+        font-size: 70px;
+        font-family: "Nikukyu";
+        border-radius: 30px;
+      }
+
+      .asiato1 {
+        position: absolute;
+        top: 40px;
+        left: 10px;
+        z-index: 1;
+      }
+      .asiato2 {
+        position: absolute;
+        top: 300px;
+        right: 10px;
+        z-index: 1;
+      }
+
+      canvas {
+        display: block; /*親要素の幅いっぱいに広がる*/
+      }
+    </style>
+  </head>
+  <body>
+    <link
+      href="https://fonts.googleapis.com/earlyaccess/nikukyu.css"
+      rel="stylesheet"
+    />
+    <canvas id="canvas"></canvas>
+    <button onclick="start()" id="button">ゲームスタート</button>
+    <p class="title" id="title">犬種当てクイズ</p>
+    <div><img src="0-asiato.png" class="asiato1" /></div>
+    <div><img src="0-asiato.png" class="asiato2" /></div>
+    <script>
+      function adjustFontSizetitle() {
+        // 画面の幅を取得
+        var screenWidth = window.innerWidth;
+
+        // フォントサイズを計算
+        var fontSize = screenWidth * 0.1; // 画面幅の10%
+
+        // 最小フォントサイズを設定
+        var minFontSize = 40; // 最小フォントサイズを設定（必要に応じて変更）
+        fontSize = Math.max(fontSize, minFontSize);
+
+        // フォントサイズを設定
+        document.getElementById("title").style.fontSize = fontSize + "px";
+      }
+
+      // 初期設定
+      adjustFontSizetitle();
+
+      function adjustFontSizebutton() {
+        // 画面の幅を取得
+        var screenWidth = window.innerWidth;
+
+        // フォントサイズを計算
+        var fontSize = screenWidth * 0.1; // 画面幅の10%
+
+        // 最小フォントサイズを設定
+        var minFontSize = 40; // 最小フォントサイズを設定（必要に応じて変更）
+        fontSize = Math.max(fontSize, minFontSize);
+
+        // フォントサイズを設定
+        document.getElementById("button").style.fontSize = fontSize + "px";
+      }
+
+      // 初期設定
+      adjustFontSizebutton();
+
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+
+      //半円を描画する関数
+      function circle(x, y, radius) {
+        ctx.beginPath();
+        ctx.arc(x, y, radius, Math.PI, 2 * Math.PI);
+        ctx.closePath();
+        ctx.clip(); //描画領域を設定することで画像を円の中のみに挿入できる
+      }
+
+      //画像の読み込み
+      var img = new Image();
+      img.src = "0-menuken.jpg";
+
+      //画像の読み込み完了後に描画する
+      img.onload = function () {
+        //画面中央下
+        var centerX = canvas.width / 2;
+        var centerY = canvas.height;
+
+        var radius = canvas.width / 3;
+
+        //半円を描画
+        circle(centerX, centerY, radius);
+
+        //円の中に画像を描画
+        var imgWidth, imgHeight;
+        if (img.width > img.height) {
+          imgWidth = radius * 2;
+          imgHeight = img.height * (imgWidth / img.width);
+        } else {
+          imgHeight = radius * 2;
+          imgWidth = img.width * (imgHeight / img.height);
+        }
+        ctx.drawImage(
+          img,
+          centerX - imgWidth / 2,
+          centerY - imgHeight / 2,
+          imgWidth,
+          imgHeight
+        );
+      };
+
+      //ウィンドウサイズが変更されたときにCanvasのサイズを更新する
+      window.addEventListener("resize", function () {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        //画像の再描画
+        img.onload();
+      });
+
+      //初期化時にCanvasのサイズを設定
+      window.dispatchEvent(new Event("resize"));
+      // ウィンドウのリサイズ時にフォントサイズを調整
+      window.addEventListener("resize", adjustFontSizetitle);
+      window.addEventListener("resize", adjustFontSizebutton);
+      function start() {
+        console.log("ゲームスタート");
+        location.href = "./1-quiz.html";
+      }
+    </script>
+  </body>
+</html>
