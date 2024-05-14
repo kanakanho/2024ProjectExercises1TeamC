@@ -1,0 +1,51 @@
+* {
+    --button-shadow: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.2));
+    --button-shadow-red: drop-shadow(0px 0px 20px rgba(255, 0, 0, 0.4));
+}
+
+.circleBox {
+    margin: 40vh 50px 0 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buttonCircle {
+    cursor: pointer;
+    -webkit-filter: var(--button-shadow);
+    filter: var(--button-shadow);
+}
+
+.buttonCircle:active {
+    transform: translate(0, 3px);
+    -webkit-filter: var(--button-shadow-red);
+    filter: var(--button-shadow-red);
+}
+
+.popOutAnimation {
+    animation-duration: 1.5s;
+    animation-name: popOut;
+}
+
+@keyframes popOut {
+    0% {
+        transform: translate(0, 0);
+    }
+    30% {
+        transform: translate(0, -100px);
+    }
+    50% {
+        opacity: 100;
+    }
+    100% {
+        transform: translate(0, 100px);
+        opacity: 0;
+    }
+}
+
+.gameMessage p {
+    font-size: 4rem;
+    text-align: center;
+    font-weight: 500;
+    user-select: none;
+}
