@@ -7,7 +7,6 @@ function setLocalStrage(number) {
     if (input === null) {
         input = 0;
     }
-    console.log("number", number, "input", input);
     if (number === 1 && input < 20) {
         output = 20;
     } else if (number === 2 && input < 40) {
