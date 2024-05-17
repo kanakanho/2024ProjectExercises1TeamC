@@ -32,9 +32,11 @@
     </body>
     <script src="../globalsrc/returnHome.js"></script>
     <script src="./src/main.js"></script>
+    <script src="./src/localstrage.js"></script>
     <script>
         function clickCenterButton() {
             document.getElementsByClassName("circleBox")[0].classList.add("popOutAnimation");
+            setLocalStrage(1);
             changeStage(0);
         }
     </script>
