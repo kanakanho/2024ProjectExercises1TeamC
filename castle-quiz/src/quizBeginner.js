@@ -117,7 +117,7 @@ function checkAnswer(choice, answer) {
     window.alert("正解");
     count++;
   } else {
-    window.alert("不正解 正解は" + answer + "です");
+    window.alert(`不正解  正解${answer}です`);
     console.log(answer);
   }
   loadNextQuestion();
