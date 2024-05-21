@@ -10,10 +10,13 @@
         text-align: center;
       }
       .botton {
-        width: 40em;
-        height: 5em;
+        width: 10em;
+        height: 2em;
+        font-size: xx-large;
       }
-
+      .quiz-question-number {
+        font-size: 30px;
+      }
       .title {
         font-size: 100px;
         color: blueviolet;
@@ -36,14 +39,15 @@
       <div class="inner-block">
         <h1 class="title">漢字クイズ</h1>
         <div class="quiz-content">
-          <h1 class="quiz-question-number" id="qn">表示される感じの読みを</h1>
-          <h1 class="attention">ひらがなで</h1>
-          <h1>入力してください</h1>
+          <p class="quiz-question-number" id="qn">表示される漢字の読みを</p>
+          <h1>ひらがなで</h1>
+          <p class="quiz-question-number">入力してください</p>
         </div>
-        <button class="botton" onclick="pushEnter()">決定</button>
+        <a href="index.html"
+          ><button class="botton" onclick="pushEnter()">分かった！！</button></a
+        >
       </div>
     </main>
   </body>
-
   <script src="src.js"></script>
 </html>
