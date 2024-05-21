@@ -9,6 +9,10 @@
       body {
         text-align: center;
       }
+      .botton {
+        width: 40em;
+        height: 5em;
+      }
 
       .title {
         font-size: 100px;
@@ -32,14 +36,14 @@
       <div class="inner-block">
         <h1 class="title">漢字クイズ</h1>
         <div class="quiz-content">
-          <h1 class="quiz-question-number" id="qn">第1問</h1>
+          <h1 class="quiz-question-number" id="qn">表示される感じの読みを</h1>
+          <h1 class="attention">ひらがなで</h1>
+          <h1>入力してください</h1>
         </div>
-        <h2 class="quiz-question" id="qs">呪術</h2>
-        <input type="text" class="quiz-answer" onchange="getText()" />
-        <h1></h1>
-        <button onclick="pushEnter()">決定</button>
+        <button class="botton" onclick="pushEnter()">決定</button>
       </div>
     </main>
   </body>
+
   <script src="src.js"></script>
 </html>
