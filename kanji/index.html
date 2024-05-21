@@ -1,129 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>漢字クイズ</title>
+    <link rel="stylesheet" href="../globalstyle/buttonstyle.css" />
     <style>
-        body {
-            text-align: center;
-        }
+      body {
+        text-align: center;
+      }
 
-        .title {
-            font-size: 100px;
-            color: blueviolet;
-        }
+      .title {
+        font-size: 100px;
+        color: blueviolet;
+      }
+      .quiz-answer {
+        width: 300px;
+        /* height: 10em; */
+      }
+      input[type="text"] {
+        font-size: 200%;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
+    <div class="returnButton" onclick="returnHome()">
+      <img src="../img/returnButton.png" />
+    </div>
     <main class="quiz outer-block">
-        <div class="inner-block">
-            <h1 class="title">漢字クイズ</h1>
-            <div class="quiz-content">
-                <h1 class="quiz-question-number" id='qn'>第1問</h1>
-            </div>
-            <h2 class="quiz-question" id="qs">呪術</h2>
-            <input class="quiz-answer" onchange="getText()">
-            </input>
-            <button onclick="pushEnter()">決定</button>
+      <div class="inner-block">
+        <h1 class="title">漢字クイズ</h1>
+        <div class="quiz-content">
+          <h1 class="quiz-question-number" id="qn">第1問</h1>
         </div>
-        </div>
+        <h2 class="quiz-question" id="qs">呪術</h2>
+        <input type="text" class="quiz-answer" onchange="getText()" />
+        <h1></h1>
+        <button onclick="pushEnter()">決定</button>
+      </div>
     </main>
-</body>
-<script>
+  </body>
+  <script src="../globalsrc/returnHome.js"></script>
+  <script>
     let score = 0;
     let inputValue;
-    let userName, [] = ["太郎", "花子", "花子", "花子", "花子"];
+    let userName,
+      [] = ["太郎", "花子", "花子", "花子", "花子"];
     let questionnumber = 1;
-    let question, [] = ["呪術", "混沌", "権化", "隻眼", "喰種"];
-    let answer, [] = ["じゅじゅつ", "こんとん", "ごんげ", "せきがん", "ぐーる"]
+    const question = ["呪術", "混沌", "権化", "隻眼", "喰種"];
+    const answer = ["じゅじゅつ", "こんとん", "ごんげ", "せきがん", "ぐーる"];
     function getText() {
-        inputValue = document.querySelector('.quiz-answer').value;
-        console.log(inputValue)
-
+      inputValue = document.querySelector(".quiz-answer");
+      console.log(inputValue.value);
     }
 
     function pushEnter() {
-        judge()
-        changeUI()
+      judge();
+      changeUI();
     }
     function judge() {
-        console.log("ボタン押した")
-        switch (questionnumber) {
-            case 1:
-                if (inputValue == "じゅじゅつ") {
-                    alert('正解！！')
-                    score += 100
-                }
-                else {
-                    alert('残念！！不正解！！')
-                    if (40 < score) score -= 40
-                    else score = 0
-                }
-                console.log(score)
-                break;
-            case 2:
-                if (inputValue == "こんとん") {
-                    alert('正解！！')
-                    score += 100
-                }
-                else {
-                    alert('残念！！不正解！！')
-                    if (40 < score) score -= 40
-                    else score = 0
-                }
-                console.log(score)
-                break;
-            case 3:
-                if (inputValue == "ごんげ") {
-                    alert('正解！！')
-                    score += 100
-                }
-                else {
-                    alert('残念！！不正解！！')
-                    if (40 < score) score -= 40
-                    else score = 0
-                }
-                console.log(score)
-                break;
-            case 4:
-                if (inputValue == "せきがん") {
-                    alert('正解！！')
-                    score += 100
-                }
-                else {
-                    alert('残念！！不正解！！')
-                    if (40 < score) score -= 40
-                    else score = 0
-                }
-                console.log(score)
-                break;
-            case 5:
-                if (inputValue == "ぐーる") {
-                    alert('正解！！')
-                    score += 100
-                }
-                else {
-                    alert('残念！！不正解！！')
-                    if (40 < score) score -= 40
-                    else score = 0
-                }
-                console.log(score)
-                break;
-            default:
-                break;
-        }
+      console.log("ボタン押した");
+      console.log("判定", inputValue.value, answer[questionnumber - 1]);
+      if (inputValue.value == answer[questionnumber - 1]) {
+        alert("正解！！");
+        score += 100;
+      } else {
+        alert("残念！！不正解！！");
+        if (100 < score) score -= 100;
+        else score = 0;
+      }
+      console.log(score);
     }
+
     function changeUI() {
-        console.log(questionnumber)
-        document.getElementById('qn').textContent = '第' + questionnumber + '問'
+      if (questionnumber < 5) {
+        console.log(questionnumber);
+        var a = document.getElementById("qn").textContent;
 
-        document.getElementById('qs').textContent = question[questionnumber - 1]
+        document.getElementById("qn").textContent =
+          "第" + [questionnumber + 1] + "問";
+        document.getElementById("qs").textContent = question[questionnumber];
         questionnumber += 1;
-
+      } else {
+        document.getElementById("qn").textContent =
+          "終了です。お疲れ様でした。";
+        document.getElementById("qs").textContent =
+          "あなたのスコアは" + score + "です。";
+        setLocalStrage();
+      }
+      //div#input-form内の一番下の要素を取得
+      inputValue.value = "";
     }
-</script>
+    function setLocalStrage() {
+      // 自分の key を設定する
+      const key = "kanji_clear";
 
+      if (0 < score === 100) {
+        output = 20;
+      } else if (score === 200) {
+        output = 40;
+      } else if (score === 300) {
+        output = 60;
+      } else if (score === 400) {
+        output = 80;
+      } else if (score === 500) {
+        output = 100;
+      } else {
+        output = 0;
+      }
+
+      // keyと作られた点数を保存する
+      localStorage.setItem(key, output);
+    }
+  </script>
 </html>
