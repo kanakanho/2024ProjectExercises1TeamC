@@ -57,6 +57,7 @@
     </body>
     <script src="../globalsrc/returnHome.js"></script>
     <script src="./src/main.js"></script>
+    <script src="./src/localstrage.js"></script>
     <script>
         let startTime = null;
         let timer = null;
@@ -132,6 +133,7 @@
 
         function clear() {
             document.querySelector(".circleBox").classList.add("popOutAnimation");
+            setLocalStrage(4);
             changeStage(-1);
         }
     </script>
