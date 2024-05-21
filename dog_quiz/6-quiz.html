@@ -26,7 +26,7 @@
         margin-right: calc(50vw - 350px);
       }
       .img-size {
-        width: 700px;
+        width: 600px;
       }
       button {
         width: 300px;
@@ -47,22 +47,22 @@
     </style>
   </head>
   <body>
-    <p class="quiz1">問題１</p>
-    <div class="Image"><img src="1-img-akitaken.jpg" class="img-size" /></div>
+    <p class="quiz1">問題６</p>
+    <div class="Image"><img src="6-img-hound.jpg" class="img-size" /></div>
     <div class="buttons">
-      <button onclick="incorrect()">柴犬</button>
-      <button onclick="correct()">秋田犬</button>
+      <button onclick="incorrect()">ビーグル</button>
+      <button onclick="correct()">バセット・ハウンド</button>
     </div>
     <script>
       function correct() {
         console.log("正解");
-        location.href = "./1-quiz-correct.html";
+        location.href = "./6-quiz-correct.html";
         //グローバル変数に代入
         localStorage.setItem("dog_quiz_clear", "10");
       }
       function incorrect() {
         console.log("不正解");
-        location.href = "./1-quiz-incorrect.html";
+        location.href = "./6-quiz-incorrect.html";
       }
     </script>
   </body>

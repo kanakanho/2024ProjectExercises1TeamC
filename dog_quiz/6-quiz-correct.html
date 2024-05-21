@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>正解</title>
+    <style>
+      body {
+        overflow: hidden;
+        background-image: url("0-img-background.jpg");
+        background-size: cover;
+      }
+      .dog {
+        width: 700px;
+        vertical-align: middle;
+        border-radius: 40px;
+      }
+      .correct {
+        /*フォントの太さ*/
+        font-weight: bold;
+        font-size: 120px;
+        color: #bb1919;
+        /*フォントの縁取り*/
+        -webkit-text-stroke: 4px #000;
+        /*画像の横に表示*/
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .text {
+        margin-top: 3%;
+        background-color: #63b3ed;
+        font-size: x-large;
+        color: aliceblue;
+        /*下までbackground-colorをつける*/
+        height: calc(100vh - 120px);
+        padding: 40px;
+        box-sizing: border-box;
+      }
+      .next {
+        position: absolute;
+        right: 5%;
+        vertical-align: top;
+        font-size: 50px;
+        color: #000;
+        white-space: nowrap;
+        background-color: #faf089;
+        margin-left: 20%;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="6-img-hound.jpg" class="dog" />
+    <div class="correct">正解</div>
+    <button class="next" onclick="next()">次へ</button>
+    <p class="text">
+      元々はウサギ・キツネ等の小動物の狩の際に改良された猟犬だが、
+      現在は主に家庭犬として飼われているケースが多い。
+      また、短編カートゥーンの著名な主人公である犬、ドルーピーのモデルである。
+    </p>
+  </body>
+  <script>
+    function next() {
+      console.log("次へ");
+      location.href = "./7-quiz.html";
+    }
+  </script>
+</html>
