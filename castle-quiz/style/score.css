@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("../img/quiz.webp");
+}
+.Container {
+  width: 100vw;
+  height: 90vh;
+}
+
+.returnButton {
+  cursor: pointer;
+}
+
+.returnButton img {
+  position: fixed;
+  top: 1vw;
+  left: 1vw;
+  width: 80px;
+  height: 80px;
+}
+
+.box {
+  align-items: center;
+  text-align: left;
+  padding: 5%;
+  margin: 6%;
+  width: 30%;
+  color: #5989cf;
+  background: #c6e4ff;
+  border-bottom: solid 6px #aac5de;
+  border-radius: 1%;
+}
+.box p {
+  margin: 0;
+  padding: 0;
+}

@@ -1,3 +1,3 @@
 function returnHome() {
-    location.href = "/";
+  location.href = "/";
 }
