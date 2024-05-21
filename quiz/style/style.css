@@ -49,3 +49,11 @@
     font-weight: 500;
     user-select: none;
 }
+
+.infomation {
+    text-align: center;
+}
+.infomation p {
+    font-size: 1.5rem;
+    user-select: none;
+}
