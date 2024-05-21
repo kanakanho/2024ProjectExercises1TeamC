@@ -10,6 +10,32 @@
     </head>
     <body>
         <div class="returnButton" onclick="returnHome()"><img src="../img/returnButton.png" /></div>
+        <div class="stageNum">
+            <p>Stage4</p>
+            <div class="miniCircleBox">
+                <svg class="green" id="circle-1" width="24" height="24">
+                    <defs>
+                        <mask id="miniDonut">
+                            <rect width="100%" height="100%" fill="#ffffff" />
+                            <circle cx="12" cy="12" r="9" fill="black" />
+                        </mask>
+                    </defs>
+                    <circle cx="12" cy="12" r="12" stroke-width="1"></circle>
+                </svg>
+                <svg class="green" id="circle-2" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1"></circle>
+                </svg>
+                <svg class="green" id="circle-3" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1" ></circle>
+                </svg>
+                <svg class="green" id="circle-4" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1" ></circle>
+                </svg>
+                <svg class="green" id="circle-5" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1" mask="url(#miniDonut)"></circle>
+                </svg>
+            </div>
+        </div>
         <div class="circleBox" onClick="clickCenterButton()">
             <svg class="green" id="circle1" width="60" height="60">
                 <defs>
