@@ -10,6 +10,19 @@
         background-image: url("0-img-background.jpg");
         background-size: cover;
       }
+      .back {
+        /*ボタンを並列にする*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 50px;
+        color: #000;
+        white-space: nowrap;
+        border: 3px solid #000;
+        background-color: #faf089;
+        font-size: 20px;
+      }
       .quiz1 {
         margin-left: 20%;
         margin-right: 20%;
@@ -48,6 +61,7 @@
     </style>
   </head>
   <body>
+    <div class="back" onclick="menu()">メニュー</div>
     <p class="quiz1">問題３</p>
     <div class="Image"><img src="3-img-yoki.jpg" class="img-size" /></div>
     <div class="buttons">
@@ -59,11 +73,17 @@
         console.log("正解");
         location.href = "./3-quiz-correct.html";
         //グローバル変数に代入
-        localStorage.setItem("dog_quiz_clear", "10");
+        const value = localStorage.getItem("dog_quiz_clear");
+        input = Number(value);
+        input += 10;
+        localStorage.setItem("dog_quiz_clear", input);
       }
       function incorrect() {
         console.log("不正解");
         location.href = "./3-quiz-incorrect.html";
+      }
+      function menu() {
+        location.href = "./0-menu.html";
       }
     </script>
   </body>

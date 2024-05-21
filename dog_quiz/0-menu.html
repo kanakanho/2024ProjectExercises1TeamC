@@ -81,6 +81,11 @@
     <div class="asiato2"><img src="0-img-asiato.png" /></div>
     <script>
       function start() {
+        //グローバル変数に代入
+        const value = localStorage.getItem("dog_quiz_clear");
+        input = Number(value);
+        input = 0;
+        localStorage.setItem("dog_quiz_clear", input);
         console.log("ゲームスタート");
         location.href = "./1-quiz.html";
       }
