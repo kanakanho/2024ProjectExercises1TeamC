@@ -74,7 +74,7 @@
         let interval = null;
 
         function toggleCircleMask() {
-            let circles = document.querySelectorAll(".circleBox svg:not(.buttonCircle) circle");
+            const circles = document.querySelectorAll(".circleBox svg:not(.buttonCircle) circle");
             circles.forEach((circle, index) => {
                 if (circle.getAttribute("mask") === "url(#donut)") {
                     circle.removeAttribute("mask");
@@ -108,17 +108,17 @@
         }
 
         function putMask(idName) {
-            var element = document.getElementById(idName);
-            var circles = element.getElementsByTagName("circle");
-            for (var i = 0; i < circles.length; i++) {
+            const element = document.getElementById(idName);
+            const circles = element.getElementsByTagName("circle");
+            for (let i = 0; i < circles.length; i++) {
                 circles[i].setAttribute("mask", "url(#donut)");
             }
         }
 
         function removeMask(idName) {
-            var element = document.getElementById(idName);
-            var circles = element.getElementsByTagName("circle");
-            for (var i = 0; i < circles.length; i++) {
+            const element = document.getElementById(idName);
+            const circles = element.getElementsByTagName("circle");
+            for (let i = 0; i < circles.length; i++) {
                 circles[i].removeAttribute("mask");
             }
         }

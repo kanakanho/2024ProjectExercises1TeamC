@@ -142,23 +142,23 @@
         }
 
         function removeMask(idName) {
-            var element = document.getElementById(idName);
-            var circles = element.getElementsByTagName("circle");
-            for (var i = 0; i < circles.length; i++) {
+            const element = document.getElementById(idName);
+            const circles = element.getElementsByTagName("circle");
+            for (let i = 0; i < circles.length; i++) {
                 circles[i].removeAttribute("mask");
             }
         }
 
         function putMask(idName) {
-            var element = document.getElementById(idName);
-            var circles = element.getElementsByTagName("circle");
-            for (var i = 0; i < circles.length; i++) {
+            const element = document.getElementById(idName);
+            const circles = element.getElementsByTagName("circle");
+            for (let i = 0; i < circles.length; i++) {
                 circles[i].setAttribute("mask", "url(#donut)");
             }
         }
 
         function clear() {
-            document.querySelector(".circleBox").classList.add("popOutAnimation");
+            document.getElementsByClassName("circleBox")[0].classList.add("popOutAnimation");
             setLocalStrage(4);
             changeStage(3);
         }
