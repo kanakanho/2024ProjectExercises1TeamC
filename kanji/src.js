@@ -1,7 +1,5 @@
 let score = 0;
 let inputValue;
-let userName,
-  [] = ["太郎", "花子", "花子", "花子", "花子"];
 let questionnumber = 1;
 const question = ["呪術", "混沌", "権化", "隻眼", "喰種"];
 const answer = ["じゅじゅつ", "こんとん", "ごんげ", "せきがん", "ぐーる"];
@@ -27,18 +25,17 @@ function judge() {
   }
   console.log(score);
 }
-
+const qnElement = document.getElementById("qn");
 function changeUI() {
   if (questionnumber < 5) {
     console.log(questionnumber);
-    var a = document.getElementById("qn").textContent;
+    // let a = document.getElementById("qn");
 
-    document.getElementById("qn").textContent =
-      "第" + [questionnumber + 1] + "問";
+    qnElement.textContent = "第" + [questionnumber + 1] + "問";
     document.getElementById("qs").textContent = question[questionnumber];
     questionnumber += 1;
   } else {
-    document.getElementById("qn").textContent = "終了です。お疲れ様でした。";
+    qnElement.textContent = "終了です。お疲れ様でした。";
     document.getElementById("qs").textContent =
       "あなたのスコアは" + score + "です。";
     setLocalStrage();
