@@ -11,9 +11,9 @@
     <body>
         <div class="returnButton" onclick="returnHome()"><img src="../img/returnButton.png" /></div>
         <div class="stageNum">
-            <p>Stage2</p>
+            <p>Stage5</p>
             <div class="miniCircleBox">
-                <svg class="yellow" id="circle-1" width="24" height="24">
+                <svg class="orange" id="circle-1" width="24" height="24">
                     <defs>
                         <mask id="miniDonut">
                             <rect width="100%" height="100%" fill="#ffffff" />
@@ -22,22 +22,22 @@
                     </defs>
                     <circle cx="12" cy="12" r="12" stroke-width="1"></circle>
                 </svg>
-                <svg class="yellow" id="circle-2" width="24" height="24">
+                <svg class="orange" id="circle-2" width="24" height="24">
                     <circle cx="12" cy="12" r="12" stroke-width="1"></circle>
                 </svg>
-                <svg class="yellow" id="circle-3" width="24" height="24">
-                    <circle cx="12" cy="12" r="12" stroke-width="1" mask="url(#miniDonut)"></circle>
+                <svg class="orange" id="circle-3" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1"></circle>
                 </svg>
-                <svg class="yellow" id="circle-4" width="24" height="24">
-                    <circle cx="12" cy="12" r="12" stroke-width="1" mask="url(#miniDonut)"></circle>
+                <svg class="orange" id="circle-4" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1"></circle>
                 </svg>
-                <svg class="yellow" id="circle-5" width="24" height="24">
-                    <circle cx="12" cy="12" r="12" stroke-width="1" mask="url(#miniDonut)"></circle>
+                <svg class="orange" id="circle-5" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1"></circle>
                 </svg>
             </div>
         </div>
         <div class="circleBox" onClick="clickCenterButton()">
-            <svg class="yellow" id="circle1" width="60" height="60">
+            <svg class="orange" id="circle1" width="60" height="60">
                 <defs>
                     <mask id="donut">
                         <rect width="100%" height="100%" fill="#ffffff" />
@@ -46,21 +46,21 @@
                 </defs>
                 <circle cx="30" cy="30" r="30" stroke-width="1" mask="url(#donut)"></circle>
             </svg>
-            <svg class="yellow" id="circle2" width="60" height="60">
+            <svg class="orange" id="circle2" width="60" height="60">
                 <circle cx="30" cy="30" r="30" stroke-width="1" mask="url(#donut)"></circle>
             </svg>
-            <svg class="buttonCircle yellow" width="160" height="160">
+            <svg class="buttonCircle orange" width="160" height="160">
                 <circle cx="80" cy="80" r="80" stroke-width="1"></circle>
             </svg>
-            <svg class="yellow" id="circle3" width="60" height="60">
+            <svg class="orange" id="circle3" width="60" height="60">
                 <circle cx="30" cy="30" r="30" stroke-width="1" mask="url(#donut)"></circle>
             </svg>
-            <svg class="yellow" id="circle4" width="60" height="60">
+            <svg class="orange" id="circle4" width="60" height="60">
                 <circle cx="30" cy="30" r="30" stroke-width="1" mask="url(#donut)"></circle>
             </svg>
         </div>
         <div class="gameMessage">
-            <p class="yellow">Click Center Button</p>
+            <p class="orange">Click Button</p>
         </div>
         <div class="infomation">
             <p>ボタンを押して4つの丸を光らせよう !</p>
@@ -70,56 +70,67 @@
     <script src="./src/main.js"></script>
     <script src="./src/localstrage.js"></script>
     <script>
-        let pushNum = 0;
         let timer = null;
+        let interval = null;
+
+        function toggleCircleMask() {
+            const circles = document.querySelectorAll(".circleBox svg:not(.buttonCircle) circle");
+            circles.forEach((circle, index) => {
+                if (circle.getAttribute("mask") === "url(#donut)") {
+                    circle.removeAttribute("mask");
+                } else {
+                    circle.setAttribute("mask", "url(#donut)");
+                }
+            });
+        }
 
         function clickCenterButton() {
             clearTimeout(timer);
-            pushNum++;
-            // 数字に該当するcircle1 から <defs> の mask を削除
-            if (pushNum == 1) {
-                removeMask("circle1");
-            } else if (pushNum == 2) {
-                removeMask("circle2");
-            } else if (pushNum == 3) {
-                removeMask("circle3");
-            } else if (pushNum == 4) {
-                removeMask("circle4");
-            }
+            clearInterval(interval);
             timer = setTimeout(judgement, 2000);
         }
 
         function judgement() {
-            if (pushNum == 4) {
+            let circles = document.querySelectorAll(".circleBox svg:not(.buttonCircle) circle");
+            let counter = 0;
+            circles.forEach((circle, index) => {
+                if (circle.getAttribute("mask") !== "url(#donut)") {
+                    console.log(counter);
+                    counter++;
+                }
+            });
+
+            if (counter === 4) {
                 clear();
+            } else {
+                interval = setInterval(toggleCircleMask, 50); // 0.1秒ごとにサークルのマスクを切り替え
             }
-            putMask("circle1");
-            putMask("circle2");
-            putMask("circle3");
-            putMask("circle4");
-            pushNum = 0;
         }
 
         function putMask(idName) {
-            var element = document.getElementById(idName);
-            var circles = element.getElementsByTagName("circle");
-            for (var i = 0; i < circles.length; i++) {
+            const element = document.getElementById(idName);
+            const circles = element.getElementsByTagName("circle");
+            for (let i = 0; i < circles.length; i++) {
                 circles[i].setAttribute("mask", "url(#donut)");
             }
         }
 
         function removeMask(idName) {
-            var element = document.getElementById(idName);
-            var circles = element.getElementsByTagName("circle");
-            for (var i = 0; i < circles.length; i++) {
+            const element = document.getElementById(idName);
+            const circles = element.getElementsByTagName("circle");
+            for (let i = 0; i < circles.length; i++) {
                 circles[i].removeAttribute("mask");
             }
         }
 
         function clear() {
             document.getElementsByClassName("circleBox")[0].classList.add("popOutAnimation");
-            setLocalStrage(2);
-            changeStage(1);
+            setLocalStrage(5);
+            changeStage(-1);
         }
+
+        window.onload = function () {
+            interval = setInterval(toggleCircleMask, 50); // 0.1秒ごとにサークルのマスクを切り替え
+        };
     </script>
 </html>

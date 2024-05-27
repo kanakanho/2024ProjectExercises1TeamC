@@ -7,17 +7,35 @@
         <link rel="stylesheet" href="../globalstyle/buttonstyle.css" />
         <link rel="stylesheet" href="./style/color.css" />
         <link rel="stylesheet" href="./style/style.css" />
-        <style>
-            .infomation {
-                text-align: center;
-            }
-            .infomation p {
-                font-size: 1.5rem;
-            }
-        </style>
     </head>
     <body>
         <div class="returnButton" onclick="returnHome()"><img src="../img/returnButton.png" /></div>
+        <div class="stageNum">
+            <p>Stage1</p>
+            <div class="miniCircleBox">
+                <svg class="red" width="24" height="24">
+                    <defs>
+                        <mask id="miniDonut">
+                            <rect width="100%" height="100%" fill="#ffffff" />
+                            <circle cx="12" cy="12" r="9" fill="black" />
+                        </mask>
+                    </defs>
+                    <circle cx="12" cy="12" r="12" stroke-width="1" ></circle>
+                </svg>
+                <svg class="red" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1" mask="url(#miniDonut)"></circle>
+                </svg>
+                <svg class="red" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1" mask="url(#miniDonut)"></circle>
+                </svg>
+                <svg class="red" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1" mask="url(#miniDonut)"></circle>
+                </svg>
+                <svg class="red" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1" mask="url(#miniDonut)"></circle>
+                </svg>
+            </div>
+        </div>
         <div class="circleBox" onClick="clickCenterButton()">
             <svg class="buttonCircle red" width="160" height="160">
                 <circle cx="80" cy="80" r="80" stroke-width="1"></circle>
