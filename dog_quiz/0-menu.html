@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>メニュー</title>
+    <link rel="stylesheet" href="../globalstyle/buttonstyle.css" />
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        /*スクロールバー削除*/
+        overflow: hidden;
+        background-image: url("0-img-background.jpg");
+        background-size: cover;
+      }
+      .menuken {
+        border-radius: 1000px;
+        width: 700px;
+      }
+      .title {
+        /*フォントの形式*/
+        font-family: "Courier New", Courier, monospace;
+        /*改行を無効*/
+        white-space: nowrap;
+        background-color: bisque;
+        border-radius: 30px;
+        font-size: 30px;
+      }
+      .buttonbox {
+        text-align: center;
+        margin-left: 20%;
+        margin-right: 20%;
+        margin-top: 10%;
+      }
+      .menukenbox {
+        margin-left: calc(50vw - 350px);
+        margin-right: calc(50vw - 350px);
+      }
+      button {
+        font-size: 70px;
+        line-height: 10%;
+        height: 100px;
+        color: black;
+        background-color: #63b3ed;
+        font-family: "Nikukyu";
+        border-radius: 30px;
+        /*改行を無効*/
+        white-space: nowrap;
+      }
+      .asiato1 {
+        position: absolute;
+        top: 100px;
+        left: 10px;
+      }
+      .asiato2 {
+        position: absolute;
+        top: 300px;
+        right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="returnButton" onclick="returnHome()">
+      <img src="../img/returnButton.png" />
+    </div>
+    <link
+      href="https://fonts.googleapis.com/earlyaccess/nikukyu.css"
+      rel="stylesheet"
+    />
+    <div class="buttonbox">
+      <button onclick="start()">ゲームスタート</button>
+      <p class="title">犬種当てクイズ</p>
+    </div>
+    <div class="menukenbox">
+      <img src="0-img-menuken.JPG" class="menuken" />
+    </div>
+
+    <div class="asiato1"><img src="0-img-asiato.png" /></div>
+    <div class="asiato2"><img src="0-img-asiato.png" /></div>
+    <script>
+      function start() {
+        //グローバル変数に代入
+        const value = localStorage.getItem("dog_quiz_clear");
+        input = Number(value);
+        input = 0;
+        localStorage.setItem("dog_quiz_clear", input);
+        console.log("ゲームスタート");
+        location.href = "./1-quiz.html";
+      }
+    </script>
+    <script src="../globalsrc/returnHome.js"></script>
+  </body>
+</html>
