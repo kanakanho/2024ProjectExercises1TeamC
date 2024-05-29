@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>謎解きクイズ</title>
+        <link rel="stylesheet" href="../globalstyle/buttonstyle.css" />
+        <link rel="stylesheet" href="./style/style.css" />
+        <link rel="stylesheet" href="./style/color.css" />
+    </head>
+    <body>
+        <div class="returnButton" onclick="returnHome()"><img src="../img/returnButton.png" /></div>
+        <div class="stageNum">
+            <p>Stage3</p>
+            <div class="miniCircleBox">
+                <svg class="blue" id="circle-1" width="24" height="24">
+                    <defs>
+                        <mask id="miniDonut">
+                            <rect width="100%" height="100%" fill="#ffffff" />
+                            <circle cx="12" cy="12" r="9" fill="black" />
+                        </mask>
+                    </defs>
+                    <circle cx="12" cy="12" r="12" stroke-width="1"></circle>
+                </svg>
+                <svg class="blue" id="circle-2" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1"></circle>
+                </svg>
+                <svg class="blue" id="circle-3" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1"></circle>
+                </svg>
+                <svg class="blue" id="circle-4" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1" mask="url(#miniDonut)"></circle>
+                </svg>
+                <svg class="blue" id="circle-5" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1" mask="url(#miniDonut)"></circle>
+                </svg>
+            </div>
+        </div>
+        <div class="circleBox" onClick="clickCenterButton()">
+            <svg class="blue" id="circle1" width="60" height="60">
+                <defs>
+                    <mask id="donut">
+                        <rect width="100%" height="100%" fill="#ffffff" />
+                        <circle cx="30" cy="30" r="22" fill="black" />
+                    </mask>
+                </defs>
+                <circle cx="30" cy="30" r="30" stroke-width="1" mask="url(#donut)"></circle>
+            </svg>
+            <svg class="blue" id="circle2" width="60" height="60">
+                <defs>
+                    <mask id="donut">
+                        <rect width="100%" height="100%" fill="#ffffff" />
+                        <circle cx="30" cy="30" r="22" fill="black" />
+                    </mask>
+                </defs>
+                <circle cx="30" cy="30" r="30" stroke-width="1" mask="url(#donut)"></circle>
+            </svg>
+            <svg class="buttonCircle blue" width="160" height="160">
+                <circle cx="80" cy="80" r="80" stroke-width="1"></circle>
+            </svg>
+            <svg class="blue" id="circle3" width="60" height="60">
+                <defs>
+                    <mask id="donut">
+                        <rect width="100%" height="100%" fill="#ffffff" />
+                        <circle cx="30" cy="30" r="22" fill="black" />
+                    </mask>
+                </defs>
+                <circle cx="30" cy="30" r="30" stroke-width="1" mask="url(#donut)"></circle>
+            </svg>
+            <svg class="blue" id="circle4" width="60" height="60">
+                <defs>
+                    <mask id="donut">
+                        <rect width="100%" height="100%" fill="#ffffff" />
+                        <circle cx="30" cy="30" r="22" fill="black" />
+                    </mask>
+                </defs>
+                <circle cx="30" cy="30" r="30" stroke-width="1" mask="url(#donut)"></circle>
+            </svg>
+        </div>
+        <div class="gameMessage">
+            <p class="blue">Click Center Button</p>
+        </div>
+    </body>
+    <script src="../globalsrc/returnHome.js"></script>
+    <script src="./src/main.js"></script>
+    <script src="./src/localstrage.js"></script>
+    <script>
+        let pushNum = 0;
+        let timer = null;
+
+        function clickCenterButton() {
+            clearTimeout(timer);
+            pushNum++;
+            timer = setTimeout(judgement, 2000);
+        }
+
+        function judgement() {
+            // 2進数で表現
+            if ([1, 3, 5, 7, 9, 11, 13, 15].includes(pushNum)) {
+                removeMask("circle1");
+            } else {
+                putMask("circle1");
+            }
+
+            if ([2, 3, 6, 7, 10, 11, 14, 15].includes(pushNum)) {
+                removeMask("circle2");
+            } else {
+                putMask("circle2");
+            }
+            if ([4, 5, 6, 7, 12, 13, 14, 15, 16].includes(pushNum)) {
+                removeMask("circle3");
+            } else {
+                putMask("circle3");
+            }
+            if ([8, 9, 10, 11, 12, 13, 14, 15].includes(pushNum)) {
+                removeMask("circle4");
+            } else {
+                putMask("circle4");
+            }
+
+            if (pushNum == 15) {
+                clear();
+                return;
+            }
+            pushNum = 0;
+
+            // 2秒後にマスクを戻す
+            setTimeout(() => {
+                putMask("circle1");
+                putMask("circle2");
+                putMask("circle3");
+                putMask("circle4");
+            }, 2000);
+        }
+
+        function removeMask(idName) {
+            const element = document.getElementById(idName);
+            const circles = element.getElementsByTagName("circle");
+            for (let i = 0; i < circles.length; i++) {
+                circles[i].removeAttribute("mask");
+            }
+        }
+
+        function putMask(idName) {
+            const element = document.getElementById(idName);
+            var circles = element.getElementsByTagName("circle");
+            for (var i = 0; i < circles.length; i++) {
+                circles[i].setAttribute("mask", "url(#donut)");
+            }
+        }
+
+        function clear() {
+            document.getElementsByClassName("circleBox")[0].classList.add("popOutAnimation");
+            setLocalStrage(3);
+            changeStage(2);
+        }
+    </script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>漢字クイズ</title>
+    <link rel="stylesheet" href="../globalstyle/buttonstyle.css" />
+    <style>
+      body {
+        text-align: center;
+      }
+      .botton {
+        width: 10em;
+        height: 2em;
+        font-size: xx-large;
+      }
+      .quiz-question-number {
+        font-size: 30px;
+      }
+      .title {
+        font-size: 100px;
+        color: blueviolet;
+      }
+      .quiz-answer {
+        width: 300px;
+        /* height: 10em; */
+      }
+      input[type="text"] {
+        font-size: 200%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="returnButton" onclick="returnHome()">
+      <img src="../img/returnButton.png" />
+    </div>
+    <main class="quiz outer-block">
+      <div class="inner-block">
+        <h1 class="title">漢字クイズ</h1>
+        <div class="quiz-content">
+          <p class="quiz-question-number" id="qn">表示される漢字の読みを</p>
+          <h1>ひらがなで</h1>
+          <p class="quiz-question-number">入力してください</p>
+        </div>
+        <a href="index.html"
+          ><button class="botton" onclick="pushEnter()">分かった！！</button></a
+        >
+      </div>
+    </main>
+  </body>
+  <script src="src.js"></script>
+  <script src="../globalsrc/returnHome.js"></script>
+</html>
