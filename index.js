@@ -11,8 +11,64 @@ const moveGameWindow = (gameName) => {
     window.location = "./kanji/";
   } else if (gameName == "game4") {
     console.log("game4");
-    window.location = "./dog_quiz/0-menu/";
+    window.location = "./dog_quiz/0-menu.html";
   } else {
     console.error("ゲームが見つからず遷移できませんでした");
   }
 };
+
+//backgroundWrapperのwidthをローカルストレージの値により変更
+function backgroundImg(value) {
+  const backElements = document.getElementsByClassName("backgroundWrapper");
+  const num = 100 - value;
+  for (let element of backElements) {
+    element.style.width = `${num}%`;
+  }
+}
+
+//quiz_clear castle_clear dog_quiz_clear kanji_clear
+function getLocalStrages() {
+  // 自分の key を設定する
+  const quiz_key = "quiz_clear";
+  const castle_key = "castle_clear";
+  const kanji_key = "kanji_clear";
+  const dog_key = "dog_quiz_clear";
+
+  let sum = 0; //ローカルストレージの全ての合計
+
+  // 今のローカルストレージの中身の取得
+  const quiz_value = localStorage.getItem(quiz_key);
+  const castle_value = localStorage.getItem(castle_key);
+  const kanji_value = localStorage.getItem(kanji_key);
+  const dog_value = localStorage.getItem(dog_key);
+  console.log(kanji_value);
+  console.log(castle_value);
+  console.log(dog_value);
+  //各ゲームにスコアが100の時に25点となる
+  if (quiz_value == "100") {
+    sum += 25;
+    console.log("quiz_value");
+  }
+  if (castle_value === "100") {
+    sum += 25;
+    console.log("castle_value");
+  }
+  if (kanji_value === "100") {
+    sum += 25;
+    console.log("kanji_value");
+  }
+  if (dog_value === "100") {
+    sum += 25;
+    console.log("dog_value");
+  }
+  backgroundImg(sum);
+}
+
+getLocalStrages();
+//デバック用
+function scoreClear() {
+  const result = confirm("本当に削除しますか");
+  if (result) {
+    localStorage.clear();
+  }
+}
