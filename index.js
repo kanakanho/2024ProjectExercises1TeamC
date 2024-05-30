@@ -41,26 +41,15 @@ function getLocalStrages() {
   const castle_value = localStorage.getItem(castle_key);
   const kanji_value = localStorage.getItem(kanji_key);
   const dog_value = localStorage.getItem(dog_key);
-  console.log(kanji_value);
-  console.log(castle_value);
-  console.log(dog_value);
   //各ゲームにスコアが100の時に25点となる
-  if (quiz_value == "100") {
-    sum += 25;
-    console.log("quiz_value");
-  }
-  if (castle_value === "100") {
-    sum += 25;
-    console.log("castle_value");
-  }
-  if (kanji_value === "100") {
-    sum += 25;
-    console.log("kanji_value");
-  }
-  if (dog_value === "100") {
-    sum += 25;
-    console.log("dog_value");
-  }
+  sum += quiz_value * 0.25;
+  console.log(sum);
+  sum += castle_value * 0.25;
+  console.log(sum);
+  sum += kanji_value * 0.25;
+  console.log(sum);
+  sum += dog_value * 0.25;
+  console.log(sum);
   backgroundImg(sum);
 }
 
