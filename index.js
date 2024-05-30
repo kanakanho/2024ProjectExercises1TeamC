@@ -42,13 +42,13 @@ function getLocalStrages() {
   const kanji_value = localStorage.getItem(kanji_key);
   const dog_value = localStorage.getItem(dog_key);
   //各ゲームにスコアが100の時に25点となる
-  sum += quiz_value * 0.25;
+  sum += Number(quiz_value) * 0.25;
   console.log(sum);
-  sum += castle_value * 0.25;
+  sum += Number(castle_value) * 0.25;
   console.log(sum);
-  sum += kanji_value * 0.25;
+  sum += Number(kanji_value) * 0.25;
   console.log(sum);
-  sum += dog_value * 0.25;
+  sum += Number(dog_value) * 0.25;
   console.log(sum);
   backgroundImg(sum);
 }
