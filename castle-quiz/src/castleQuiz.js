@@ -1,9 +1,9 @@
 let quizIndex = 0;
-let count = 0;
-
+// let count = 0;
+localStorage.removeItem("castle_clear");
 const quizData = [
   {
-    question: "日本で一番大きな天守を持つまたは持っていた城はどれか？",
+    question: "日本で一番大きな天守を持つまたは\n持っていた城はどれか？",
     choice: ["江戸城", "大坂城", "姫路城", "犬山城"],
     answer: "江戸城",
     explanation:
@@ -16,14 +16,14 @@ const quizData = [
     explanation: "姫路城は1993年に日本の城で唯一の世界遺産に登録されました。",
   },
   {
-    question: "ヤマト政権が東北地方の拠点として築いた多賀城は何県にあるか?",
+    question: "ヤマト政権が東北地方の拠点として築いた\n多賀城は何県にあるか?",
     choice: ["宮城県", "秋田県", "奈良県", "滋賀県"],
     answer: "宮城県",
-    explanation: "義務教育です。",
+    explanation: "宮城県",
   },
   {
     question:
-      "「グスク」は沖縄で作られた城のことであるが、「チャシ」とはどの地域で作られた城か？",
+      "「グスク」は沖縄で作られた城のことであるが、\n「チャシ」とはどの地域で作られた城か？",
     choice: ["北海道", "沖縄県", "長崎県", "小豆島"],
     answer: "北海道",
     explanation: "アイヌ語で砦、館、柵、柵囲いを意味します。",
@@ -50,17 +50,17 @@ const quizData = [
       "徐々に追い詰められた旧幕府軍は徐々に追い詰められたのちに北海道にて終止符が打たれました。",
   },
   {
-    question: "織田信長が琵琶湖湖畔に築城した、五重六階地下一階の城はどれか？",
+    question: "織田信長が琵琶湖湖畔に築城した\n五重六階地下一階の城はどれか？",
     choice: ["安土城", "伏見城", "岐阜城", "姫路城"],
     answer: "安土城",
     explanation:
       "琵琶湖湖畔の時点で安土城以外は滋賀県ではないのであり得ません。",
   },
   {
-    question: "最後の将軍の徳川慶喜が大政奉還を宣言した城はどれか?",
+    question: "最後の将軍の徳川慶喜が大政奉還を\n宣言した城はどれか?",
     choice: ["二条城", "江戸城", "大坂城", "姫路城"],
     answer: "二条城",
-    explanation: "義務教育です。",
+    explanation: "二条城",
   },
   {
     question: "姫路城は別名なんて呼ばれるか?",
@@ -80,7 +80,7 @@ const quizData = [
     question: "信長が築いた城はどれか?",
     choice: ["岐阜城", "観音寺城", "甲府城", "小谷城"],
     answer: "岐阜城",
-    explanation: "すごーい",
+    explanation: "岐阜城",
   },
   {
     question: "名古屋城が金鯱で有名な理由で正しいものはどれか?",
@@ -101,7 +101,7 @@ const quizData = [
     explanation: "萩城は山口県の城です。",
   },
   {
-    question: "別名「海津城」と呼ばれ、川中島の戦いの舞台となった城はどれか?",
+    question: "別名「海津城」と呼ばれ、川中島の戦いの\n舞台となった城はどれか?",
     choice: ["松本城", "犬山城", "姫路城", "彦根城"],
     answer: "松本城",
     explanation:
@@ -109,13 +109,13 @@ const quizData = [
   },
   {
     question:
-      "城から八町離れた村で作られたことが、「八丁味噌」の語源とされているが、その城はどれか？",
+      "城から八町離れた村で作られたことが、\n「八丁味噌」の語源とされているが、その城はどれか？",
     choice: ["岡崎城", "犬山城", "松坂城", "名古屋城"],
     answer: "岡崎城",
     explanation: "岡崎は八丁味噌で有名です。",
   },
   {
-    question: "現存天守の中で標高の一番高い所に天守が立つ城はどれか?",
+    question: "現存天守の中で標高の一番高い所に天守が\n立つ城はどれか?",
     choice: ["備中松山城", "松山城", "丸亀城", "宇和島城"],
     answer: "備中松山城",
     explanation: "松山城はは愛媛にある一方で、備中松山城は岡山県にあります。",
@@ -124,31 +124,32 @@ const quizData = [
     question: "江戸城の石垣の石切場は、主にどこか？",
     choice: ["伊豆", "多摩八王子城", "神田駿河台", "下野大谷"],
     answer: "伊豆",
-    explanation: "知るか",
+    explanation:
+      "良質な石材の産地で、海上輸送による交通の便の良い伊豆地域が主な採石地として選ばれました。",
   },
   {
-    question: "雲海に浮かぶ姿が「天空の城」として人気の、兵庫県の城は?",
+    question: "雲海に浮かぶ姿が「天空の城」として\n人気の、兵庫県の城は?",
     choice: ["竹田城", "月山富田城", "姫路城", "彦根城"],
     answer: "竹田城",
     explanation:
       "縄張りが虎が臥せているように見えることから、別名虎臥城とも呼ばれます。",
   },
   {
-    question: "熊本城の特徴である「武者返し」とは、何について表現した言葉？ ",
+    question: "熊本城の特徴である「武者返し」とは\n何について表現した言葉？ ",
     choice: ["石垣の形", "鳳凰城内の道の複雑さ", "堀の深さ", "鯱鉾"],
     answer: "石垣の形",
     explanation: "武者が登れないという意味です。",
   },
   {
     question:
-      "復元ではなく、江戸時代に建てられた当時のまま天守閣が現存している日本の城は、全部で何ヶ所ある？",
+      "復元ではなく、江戸時代に建てられた当時のまま天守閣\nが現存している日本の城は、全部で何ヶ所ある？",
     choice: ["12ヶ所", "19ヶ所", "5ヶ所", "8ヶ所"],
     answer: "12ヶ所",
-    explanation: "常識です。",
+    explanation: "12ヶ所",
   },
   {
     question:
-      "城の建物の壁によく開けられている、攻めてくる敵に鉄砲や矢を放つための穴は？",
+      "城の建物の壁によく開けられている、攻めてくる敵に\n鉄砲や矢を放つための穴は？",
     choice: ["狭間", "曲輪", "破風", "間"],
     answer: "狭間",
     explanation: "狭間には弓矢, 鉄包など用途に応じて様々な形があります。",
@@ -192,13 +193,13 @@ const quizData = [
   },
   {
     question:
-      "石垣の積み方のうち、少し加工して隙間を小さい石で埋めた名古屋城でも多様されている積み方はどれ?",
+      "石垣の積み方のうち、少し加工して隙間を小さい石で\n埋めた名古屋城でも多様されている積み方はどれ?",
     choice: ["野面積み", "自然積", "切込接", "打込接"],
     answer: "野面積み",
-    explanation: "僕の一番好きな積み方です。",
+    explanation: "野面積み",
   },
   {
-    question: "空襲で溶解した名古屋城の金鯱の金の一部で作られたのはどれか?",
+    question: "空襲で溶解した名古屋城の金鯱の金の一部で\n作られたのはどれか?",
     choice: ["金の茶釜", "金の延べ棒", "金の扇子", "金時計"],
     answer: "金の茶釜",
     explanation: "金の茶釜と市旗竿頭に使われています。",
@@ -207,10 +208,9 @@ const quizData = [
     question: "名古屋城の石垣で使われた石の産地ではないのはどれか?",
     choice: ["種子島", "篠島", "竹島", "笈瀬川"],
     answer: "種子島",
-    explanation: "種子島は遠すぎ。",
+    explanation: "種子島",
   },
 ];
-const resultElement = document.getElementById("result");
 
 // 配列をシャッフルする関数
 function shuffleArray(array) {
@@ -225,12 +225,22 @@ function shuffleArray(array) {
 const shuffledQuizData = shuffleArray(quizData);
 //クイズを１から１０問格納
 const selectedQuizData = shuffledQuizData.slice(0, 10);
+//選択肢の順をシャフル
+quizData.forEach((question) => {
+  question.choice = shuffleArray(question.choice);
+});
 
 // スコアの計算
 function score() {
-  const totalScore = count * 10;
-  window.alert("スコア: " + totalScore);
-  setLocalStrages(totalScore);
+  const key = "count";
+  // 今のローカルストレージの中身の取得
+  const value = localStorage.getItem(key);
+  const totalScore = Number(value) * 10;
+  //正解数カウントをしているcountのローカルストレージを削除
+  localStorage.removeItem(key);
+  console.log(totalScore);
+  //スコアをローカルストレージに保存
+  totalScores(totalScore);
   window.location = "score.html";
 }
 
@@ -254,35 +264,50 @@ function chengeChoice(quiz) {
     choiceContainer.appendChild(choiceElement);
   });
 }
+function sendCorrect(value) {
+  //解説の文章をcorrect.htmlに送る
+  window.location.href = `correct.html?value=${encodeURIComponent(value)}`;
+}
+function sendIncorrect(value, ans) {
+  //解説の文章をincorrect.htmlに送る
+  //正解がどれか送るようにする
+  window.location.href = `incorrect.html?value=${encodeURIComponent(
+    value
+  )}&value=${encodeURIComponent(ans)}`;
+}
 
 // 正解か不正解の判定をする
 function checkAnswer(choice, answer, explanation) {
   if (answer === choice) {
-    resultElement.innerHTML = '<img src = "./img/correct.png" />';
-    // resultElement.innerHTML = "<h2>Yes</h2>";
-    // count++;
+    //配列のインデックスをカウント
+    Index(quizIndex);
+    //正解数をカウント
+    count();
+    sendCorrect(explanation);
   } else {
-    window.alert(`不正解  正解は${answer}です。${explanation}`);
+    //配列のインデックスをカウント
+    Index(quizIndex);
+    sendIncorrect(explanation, answer);
   }
-  // loadNextQuestion();
-}
-
-function nextButton() {
-  const resultElement = document.getElementById("result");
-  //次の問題を表示する
-  loadNextQuestion();
 }
 
 // 次の問題を表示する
 function loadNextQuestion() {
-  quizIndex++;
+  const key = "Index";
+  // 今のローカルストレージの中身の取得
+  const value = localStorage.getItem(key);
+  //Indexと同じにする
+  quizIndex = Number(value);
+  console.log(quizIndex);
   if (quizIndex < selectedQuizData.length) {
     questionData();
   } else {
-    alert("問題が終了しました。");
+    //配列のIndexをカウントしているIndexのローカルストレージを削除
+    localStorage.removeItem(key);
     score();
   }
 }
 
-// 初期化処理
-questionData();
+// // 初期化処理
+// questionData();
+loadNextQuestion();

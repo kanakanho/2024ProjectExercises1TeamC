@@ -1,5 +1,7 @@
 //戻った時にスコアをゼロポイントにする.
 const returnTop = () => {
+  const key = "Index";
+  localStorage.removeItem(key);
   const result = window.confirm(
     "今までの点数がなくなりますが、本当に戻りますか？"
   );
