@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/correct.css" />
+    <title>不正解</title>
+  </head>
+
+  <body>
+    <div class="Container">
+      <div class="returnButton" onclick="backTop()">
+        <img src="../img/returnButton.png" />
+      </div>
+      <div class="result">
+        <div class="incorrect">不正解</div>
+        <div class="ans" id="ans"></div>
+      </div>
+      <div class="explanation" id="explanation"></div>
+      <div class="nextButton">
+        <button onclick="nextButton()">次へ</button>
+      </div>
+    </div>
+  </body>
+  <script src="./src/returnTop.js"></script>
+  <script src="./src/incorrect.js"></script>
+  <script src="./src/nextButton.js"></script>
+  <script src="./src/localStrage.js"></script>
+</html>

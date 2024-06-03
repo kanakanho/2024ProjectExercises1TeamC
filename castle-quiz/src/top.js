@@ -1,14 +1,6 @@
-//初級
-const beginner = () => {
-  window.location = "quizBeginner.html";
-};
-//中級
-const intermediate = () => {
-  window.location = "quizIntermediate.html";
-};
-//上級
-const advanced = () => {
-  window.location = "quizAdvanced.html";
+//クイズに遷移
+const castleQuiz = () => {
+  window.location = "castleQuiz.html";
 };
 //遊び方
 const play = () => {
