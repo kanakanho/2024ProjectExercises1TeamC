@@ -17,7 +17,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   height: 100vh; /* 画面の高さに合わせる */
-  justify-items: center; /* アイテムを中央に配置 */
+  place-items: center;
 }
 .icon {
   position: relative;
