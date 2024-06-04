@@ -22,7 +22,8 @@ function backgroundImg(value) {
   const backElements = document.getElementsByClassName("backgroundWrapper");
   const num = 100 - value;
   for (let element of backElements) {
-    element.style.width = `${num}%`;
+    element.style.width = `${num}vw`;
+    element.style.translate = `-${value/2}vw`;
   }
 }
 
