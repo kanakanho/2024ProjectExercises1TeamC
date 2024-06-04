@@ -1,6 +1,7 @@
 body {
   background-image: url("./img/castle.jpg");
   background-size: cover;
+  margin: 0;
 }
 .backgroundWrapper {
   position: absolute;
