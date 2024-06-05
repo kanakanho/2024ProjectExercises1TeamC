@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>城クイズ</title>
+        <link rel="stylesheet" href="../globalstyle/buttonstyle.css" />
+        <link rel="stylesheet" href="./style/color.css" />
+        <link rel="stylesheet" href="./style/style.css" />
+    </head>
+    <body>
+        <div class="returnButton" onclick="returnHome()"><img src="../img/returnButton.png" /></div>
+        <div class="circleBox" onClick="clickCenterButton()">
+            <svg class="buttonCircle blue" width="160" height="160">
+                <circle cx="80" cy="80" r="80" stroke-width="1"></circle>
+            </svg>
+        </div>
+        <div class="gameMessage">
+            <p class="blue">Click Center Button</p>
+        </div>
+        <div class="infomation">
+            <p>真ん中のボタンを押してクイズを解こう！</p>
+        </div>
+        <div class="asobikata">
+            <button id="openPopupBtn">遊び方</button>
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <span id="closePopupBtn" class="close">&times;</span>
+                    <h2>遊び方</h2>
+                    <ul>
+                        <li>お城に関するクイズです。</li>
+                        <li>問題数は10問で四択の選択問題です。</li>
+                        <li>問題10問を全て正解しないとクリアとはなりません。</li>
+                        <li>問題をやり直すたびにスコアがリセットされます</li>
+                        <li>問題は計30問の中からランダムで10問出題されます。</li>
+                        <li>クリア目指して頑張ってください</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../globalsrc/returnHome.js"></script>
+    <script src="./src/main.js"></script>
+    <script src="./src/localstrage.js"></script>
+    <script src="./src/popup.js"></script>
+    <script>
+        function clickCenterButton() {
+            document.getElementsByClassName("circleBox")[0].classList.add("popOutAnimation");
+            window.location.href = "./castleQuiz.html";
+        }
+    </script>
+</html>
