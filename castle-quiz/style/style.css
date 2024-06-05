@@ -1,0 +1,103 @@
+* {
+    --button-shadow: drop-shadow(0px 5px 5px rgba(26, 26, 222, 0.2));
+    --button-shadow-blue: drop-shadow(0px 0px 20px rgba(6, 6, 67, 0.4));
+}
+
+.circleBox {
+    margin: 40vh 50px 0 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buttonCircle {
+    cursor: pointer;
+    -webkit-filter: var(--button-shadow);
+    filter: var(--button-shadow);
+}
+
+.buttonCircle:active {
+    transform: translate(0, 3px);
+    -webkit-filter: var(--button-shadow-blue);
+    filter: var(--button-shadow-blue);
+}
+
+.popOutAnimation {
+    animation-duration: 1.5s;
+    animation-name: popOut;
+}
+
+@keyframes popOut {
+    0% {
+        transform: translate(0, 0);
+    }
+    30% {
+        transform: translate(0, -100px);
+    }
+    50% {
+        opacity: 100;
+    }
+    100% {
+        transform: translate(0, 100px);
+        opacity: 0;
+    }
+}
+
+.gameMessage p {
+    font-size: 4rem;
+    text-align: center;
+    font-weight: 500;
+    user-select: none;
+}
+
+.infomation {
+    text-align: center;
+}
+.infomation p {
+    font-size: 1.5rem;
+    user-select: none;
+}
+
+.miniCircleBox {
+    margin: 20px 20px 0 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.stageNum {
+    position: absolute;
+    /* コンテンツが内部の要素でギリギリの幅を設定 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: right;
+    top: 0;
+    right: 0;
+    padding: 0 25px;
+}
+
+.stageNum p {
+    text-align: center;
+    user-select: none;
+}
+
+.stageNum div {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.asobikata {
+    position: fixed;
+    left: 1.5%;
+    bottom: 3%;
+    width: 80px;
+    height: 80px;
+  }
+  .asobikata button {
+    width: 100%;
+    height: 100%;
+    border: 3px solid #2544c6;
+    border-radius: 50%;
+  }
+  
