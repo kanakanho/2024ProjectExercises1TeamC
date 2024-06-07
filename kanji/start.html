@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>漢字クイズ</title>
-        <link rel="stylesheet" href="../globalstyle/buttonstyle.css" />
-        <link rel="stylesheet" href="./style/color.css" />
-        <link rel="stylesheet" href="./style/style.css" />
-    </head>
-    <body>
-        <div class="returnButton" onclick="returnHome()"><img src="../img/returnButton.png" /></div>
-        <div class="circleBox" onClick="clickCenterButton()">
-            <svg class="buttonCircle purple" width="160" height="160">
-                <circle cx="80" cy="80" r="80" stroke-width="1"></circle>
-            </svg>
-        </div>
-        <div class="gameMessage">
-            <p class="purple">Click Center Button</p>
-        </div>
-        <div class="infomation">
-            <p>真ん中のボタンを押して漢字クイズに進もう！</p>
-        </div>
-    </body>
-    <script src="../globalsrc/returnHome.js"></script>
-    <script src="./src/main.js"></script>
-    <script src="./src/localstrage.js"></script>
-    <script>
-        function clickCenterButton() {
-            document.getElementsByClassName("circleBox")[0].classList.add("popOutAnimation");
-            window.location.href = "./index.html";
-        }
-    </script>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>漢字クイズ</title>
+    <link rel="stylesheet" href="../globalstyle/buttonstyle.css" />
+    <link rel="stylesheet" href="./style/color.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+    <div class="returnButton" onclick="returnHome()">
+      <img src="../img/returnButton.png" />
+    </div>
+    <div class="circleBox" onClick="clickCenterButton()">
+      <svg class="buttonCircle purple" width="160" height="160">
+        <circle cx="80" cy="80" r="80" stroke-width="1"></circle>
+      </svg>
+    </div>
+    <p class="center-text" onClick="clickCenterButton()">漢</p>
+    <div class="gameMessage">
+      <p class="purple">Click Center Button</p>
+    </div>
+    <div class="infomation">
+      <p>真ん中のボタンを押して漢字クイズに進もう！</p>
+    </div>
+  </body>
+  <script src="../globalsrc/returnHome.js"></script>
+  <script src="./src/main.js"></script>
+  <script src="./src/localstrage.js"></script>
+  <script>
+    function clickCenterButton() {
+      document
+        .getElementsByClassName("circleBox")[0]
+        .classList.add("popOutAnimation");
+      window.location.href = "./index.html";
+    }
+  </script>
 </html>
