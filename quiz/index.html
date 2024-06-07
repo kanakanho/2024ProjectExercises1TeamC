@@ -5,11 +5,57 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>謎解きクイズ</title>
         <link rel="stylesheet" href="../globalstyle/buttonstyle.css" />
+        <link rel="stylesheet" href="./style/color.css" />
         <link rel="stylesheet" href="./style/style.css" />
     </head>
     <body>
         <div class="returnButton" onclick="returnHome()"><img src="../img/returnButton.png" /></div>
+        <div class="stageNum">
+            <p>Stage1</p>
+            <div class="miniCircleBox">
+                <svg class="red" width="24" height="24">
+                    <defs>
+                        <mask id="miniDonut">
+                            <rect width="100%" height="100%" fill="#ffffff" />
+                            <circle cx="12" cy="12" r="9" fill="black" />
+                        </mask>
+                    </defs>
+                    <circle cx="12" cy="12" r="12" stroke-width="1" ></circle>
+                </svg>
+                <svg class="red" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1" mask="url(#miniDonut)"></circle>
+                </svg>
+                <svg class="red" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1" mask="url(#miniDonut)"></circle>
+                </svg>
+                <svg class="red" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1" mask="url(#miniDonut)"></circle>
+                </svg>
+                <svg class="red" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" stroke-width="1" mask="url(#miniDonut)"></circle>
+                </svg>
+            </div>
+        </div>
+        <div class="circleBox" onClick="clickCenterButton()">
+            <svg class="buttonCircle red" width="160" height="160">
+                <circle cx="80" cy="80" r="80" stroke-width="1"></circle>
+            </svg>
+        </div>
+        <div class="gameMessage">
+            <p class="red">Click Center Button</p>
+        </div>
+        <div class="infomation">
+            <p>真ん中のボタンを押して次のステージに進もう！</p>
+        </div>
     </body>
-    <script src="../globalscript/returnHome.js"></script>
+    <script src="../globalsrc/returnHome.js"></script>
     <script src="./src/main.js"></script>
+    <script src="./src/localstrage.js"></script>
+    <script>
+        function clickCenterButton() {
+            document.getElementsByClassName("circleBox")[0].classList.add("popOutAnimation");
+            setLocalStrage(1);
+            changeStage(0);
+        }
+    </script>
 </html>
