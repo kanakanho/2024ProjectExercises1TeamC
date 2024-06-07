@@ -43,6 +43,7 @@
     <h1 id="result-summary"></h1>
     <div id="result-details" class="results"></div>
     <button onclick="menu()">最初に戻る</button>
+    <script src="menu.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         /*CSS用
@@ -85,12 +86,6 @@
           resultDetails.appendChild(resultItem);
         });
       });
-
-      function menu() {
-        // ローカルストレージの得点を初期化
-        localStorage.setItem("dog_quiz_clear", "0");
-        location.href = "0-quiz.html";
-      }
     </script>
   </body>
 </html>
