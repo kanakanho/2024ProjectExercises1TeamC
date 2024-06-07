@@ -48,6 +48,8 @@
         border-radius: 30px;
         /*改行を無効*/
         white-space: nowrap;
+        /*カーソルを合わせると指の形になる*/
+        cursor: pointer;
       }
       .asiato1 {
         position: absolute;
@@ -70,7 +72,7 @@
       rel="stylesheet"
     />
     <div class="buttonbox">
-      <button onclick="start()">ゲームスタート</button>
+      <button onclick="startQuiz()">ゲームスタート</button>
       <p class="title">犬種当てクイズ</p>
     </div>
     <div class="menukenbox">
@@ -80,14 +82,40 @@
     <div class="asiato1"><img src="0-img-asiato.png" /></div>
     <div class="asiato2"><img src="0-img-asiato.png" /></div>
     <script>
-      function start() {
-        //グローバル変数に代入
-        const value = localStorage.getItem("dog_quiz_clear");
-        input = Number(value);
-        input = 0;
-        localStorage.setItem("dog_quiz_clear", input);
-        console.log("ゲームスタート");
-        location.href = "./1-quiz.html";
+      //クイズの配列
+      const quizzes = [
+        "1-quiz.html",
+        "2-quiz.html",
+        "3-quiz.html",
+        "4-quiz.html",
+        "5-quiz.html",
+        "6-quiz.html",
+        "7-quiz.html",
+        "8-quiz.html",
+        "9-quiz.html",
+        "10-quiz.html",
+      ];
+
+      //シャッフル関数
+      function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      }
+
+      //クイズの配列をシャッフルする
+      shuffle(quizzes);
+
+      //JSON.stringifyにより配列を文字列でローカルストレージに保存
+      localStorage.setItem("quizzes", JSON.stringify(quizzes));
+      //ローカルストレージの初期値
+      localStorage.setItem("currentQuizIndex", "0");
+      localStorage.setItem("correctAnswers", "[]");
+      localStorage.setItem("dog_quiz_clear", "0");
+
+      function startQuiz() {
+        location.href = quizzes[0];
       }
     </script>
     <script src="../globalsrc/returnHome.js"></script>

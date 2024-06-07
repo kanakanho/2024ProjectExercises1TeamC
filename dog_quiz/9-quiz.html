@@ -18,6 +18,7 @@
         width: 100px;
         height: 50px;
         color: #000;
+        /*改行を無効*/
         white-space: nowrap;
         border: 3px solid #000;
         background-color: #faf089;
@@ -39,7 +40,7 @@
         margin-right: calc(50vw - 350px);
       }
       .img-size {
-        width: 600px;
+        width: 700px;
       }
       button {
         width: 300px;
@@ -49,6 +50,8 @@
         font-size: 20px;
         border-radius: 30px;
         border: 3px solid #000;
+        /*カーソルを合わせると指の形になる*/
+        cursor: pointer;
       }
       .buttons {
         /*ボタンを並列にする*/
@@ -61,29 +64,15 @@
   </head>
   <body>
     <div class="back" onclick="menu()">メニュー</div>
-    <p class="quiz1">問題９</p>
+    <p class="quiz1">問題<span id="quizNumber"></span></p>
     <div class="Image"><img src="9-img-spiz.jpg" class="img-size" /></div>
     <div class="buttons">
-      <button onclick="incorrect()">ポメラニアン</button>
-      <button onclick="correct()">スピッツ</button>
+      <button onclick="incorrect(9)">ポメラニアン</button>
+      <button onclick="correct(9)">スピッツ</button>
     </div>
-    <script>
-      function correct() {
-        console.log("正解");
-        location.href = "./9-quiz-correct.html";
-        //グローバル変数に代入
-        const value = localStorage.getItem("dog_quiz_clear");
-        input = Number(value);
-        input += 10;
-        localStorage.setItem("dog_quiz_clear", input);
-      }
-      function incorrect() {
-        console.log("不正解");
-        location.href = "./9-quiz-incorrect.html";
-      }
-      function menu() {
-        location.href = "./0-menu.html";
-      }
-    </script>
+    <script src="./correct.js"></script>
+    <script src="./incorrect.js"></script>
+    <script src="./quizNumber.js"></script>
+    <script src="./menu.js"></script>
   </body>
 </html>
