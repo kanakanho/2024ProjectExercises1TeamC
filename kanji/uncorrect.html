@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,24 +9,35 @@
       body {
         text-align: center;
       }
-      .botton {
-        width: 10em;
-        height: 2em;
-        font-size: xx-large;
+      .form {
+        gap: 110px;
       }
-      .quiz-question-number {
-        font-size: 30px;
+      .form {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .button {
+        height: 2em;
+        width: 6em;
+        font-size: 80px;
       }
       .title {
         font-size: 100px;
         color: blueviolet;
+        margin: 0;
+      }
+      .quiz-question {
+        font-size: 100px;
+        margin: 0;
       }
       .quiz-answer {
-        width: 300px;
-        /* height: 10em; */
+        margin-top: 100px;
+        width: 700px;
+        height: 1.5em;
       }
       input[type="text"] {
-        font-size: 200%;
+        font-size: 500%;
       }
     </style>
   </head>
@@ -37,15 +48,16 @@
     </div>
     <main class="quiz outer-block">
       <div class="inner-block">
-        <h1 class="title">漢字クイズ</h1>
-        <div class="quiz-content">
-          <p class="quiz-question-number" id="qn">表示される漢字の読みを</p>
-          <h1>ひらがなで</h1>
-          <p class="quiz-question-number">入力してください</p>
+        <h1 class="title" id="qn">第1問</h1>
+        <p class="quiz-question" id="qs">呪術</p>
+        <div class="form">
+          <div>
+            <input type="text" class="quiz-answer" onchange="getText()" />
+          </div>
+          <div>
+            <button class="button" onclick="pushEnter()">決定</button>
+          </div>
         </div>
-        <a href="index.html"
-          ><button class="botton" onclick="pushEnter()">分かった！！</button></a
-        >
       </div>
     </main>
   </body>

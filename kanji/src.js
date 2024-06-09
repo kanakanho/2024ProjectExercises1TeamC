@@ -16,8 +16,8 @@ function judge() {
   console.log("ボタン押した");
   console.log("判定", inputValue.value, answer[questionnumber - 1]);
   if (inputValue.value == answer[questionnumber - 1]) {
-    alert("正解！！");
     score += 100;
+    window.location.href = "correct.html"; // 通常の遷移
   } else {
     alert("残念！！不正解！！");
     if (100 < score) score -= 100;
