@@ -3,6 +3,8 @@ let inputValue;
 let questionnumber = 1;
 const question = ["呪術", "混沌", "権化", "隻眼", "喰種"];
 const answer = ["じゅじゅつ", "こんとん", "ごんげ", "せきがん", "ぐーる"];
+const questionnumberkey = "kanjiquizquestionnumber";
+const scorekey = "score";
 function getText() {
   inputValue = document.querySelector(".quiz-answer");
   console.log(inputValue.value);
@@ -10,23 +12,32 @@ function getText() {
 
 function pushEnter() {
   judge();
-  changeUI();
 }
 function judge() {
   console.log("ボタン押した");
   console.log("判定", inputValue.value, answer[questionnumber - 1]);
+  const scoretext = localStorage.getItem(scorekey);
+  score = Number(scoretext);
   if (inputValue.value == answer[questionnumber - 1]) {
     score += 100;
+    setquestionnumber();
+    setscore();
     window.location.href = "correct.html"; // 通常の遷移
   } else {
-    alert("残念！！不正解！！");
     if (100 < score) score -= 100;
     else score = 0;
+    setquestionnumber();
+    setscore();
+    window.location.href = "uncorrect.html"; // 通常の遷移
   }
   console.log(score);
 }
 const qnElement = document.getElementById("qn");
 function changeUI() {
+  const scoretext = localStorage.getItem(scorekey);
+  score = Number(scoretext);
+  const questionnumbertext = localStorage.getItem(questionnumberkey);
+  questionnumber = Number(questionnumbertext);
   if (questionnumber < 5) {
     console.log(questionnumber);
     // let a = document.getElementById("qn");
@@ -38,7 +49,14 @@ function changeUI() {
     qnElement.textContent = "終了です。お疲れ様でした。";
     document.getElementById("qs").textContent =
       "あなたのスコアは" + score + "です。";
+    //要素を削除
+    const form = document.getElementById("Form");
+    if (form) {
+      form.remove();
+    }
+    localStorage.setItem(questionnumberkey, "0");
     setLocalStrage();
+    localStorage.setItem(scorekey, "0");
   }
   //div#input-form内の一番下の要素を取得
   inputValue.value = "";
@@ -63,4 +81,39 @@ function setLocalStrage() {
 
   // keyと作られた点数を保存する
   localStorage.setItem(key, output);
+}
+function gonext() {
+  window.location.href = "index.html"; // 通常の遷移
+}
+function setquestionnumber() {
+  localStorage.setItem(questionnumberkey, questionnumber);
+}
+function setscore() {
+  localStorage.setItem(scorekey, score);
+}
+function changeUI2() {
+  const questionnumbertext = localStorage.getItem(questionnumberkey);
+  questionnumber = Number(questionnumbertext);
+  if (questionnumber - 1 < 5) {
+    console.log(questionnumber);
+    // let a = document.getElementById("qn");
+    document.getElementById("qs").textContent = question[questionnumber - 1];
+    questionnumber += 1;
+  } else {
+    qnElement.textContent = "終了です。お疲れ様でした。";
+    document.getElementById("qs").textContent =
+      "あなたのスコアは" + score + "です。";
+    //要素を削除
+    const form = document.getElementById("Form");
+    if (form) {
+      form.remove();
+    }
+    localStorage.setItem(questionnumberkey, "0");
+    setLocalStrage();
+  }
+  //div#input-form内の一番下の要素を取得
+  const input = document.getElementById("form");
+  if (input) {
+    input.value = answer[questionnumber - 2];
+  }
 }

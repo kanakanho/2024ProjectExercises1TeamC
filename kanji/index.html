@@ -58,7 +58,7 @@
       <div class="inner-block">
         <h1 class="title" id="qn">第1問</h1>
         <p class="quiz-question" id="qs">呪術</p>
-        <div class="form">
+        <div class="form" id="Form">
           <input type="text" class="quiz-answer" onchange="getText()" />
           <button class="button" onclick="pushEnter()">決定</button>
         </div>
@@ -67,4 +67,7 @@
   </body>
   <script src="src.js"></script>
   <script src="../globalsrc/returnHome.js"></script>
+  <script>
+    changeUI();
+  </script>
 </html>
