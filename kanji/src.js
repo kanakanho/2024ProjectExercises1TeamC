@@ -19,12 +19,12 @@ function judge() {
   const scoretext = localStorage.getItem(scorekey);
   score = Number(scoretext);
   if (inputValue.value == answer[questionnumber - 1]) {
-    score += 100;
+    score += 20;
     setquestionnumber();
     setscore();
     window.location.href = "correct.html"; // 通常の遷移
   } else {
-    if (100 < score) score -= 100;
+    if (20 < score) score -= 20;
     else score = 0;
     setquestionnumber();
     setscore();
@@ -40,20 +40,18 @@ function changeUI() {
   questionnumber = Number(questionnumbertext);
   if (questionnumber < 5) {
     console.log(questionnumber);
-    // let a = document.getElementById("qn");
-
     qnElement.textContent = "第" + [questionnumber + 1] + "問";
     document.getElementById("qs").textContent = question[questionnumber];
     questionnumber += 1;
   } else {
-    qnElement.textContent = "終了です。お疲れ様でした。";
-    document.getElementById("qs").textContent =
-      "あなたのスコアは" + score + "です。";
+    qnElement.textContent = "Result";
+    document.getElementById("qs").textContent = "スコア：" + score;
     //要素を削除
     const form = document.getElementById("Form");
     if (form) {
       form.remove();
     }
+    createButton();
     localStorage.setItem(questionnumberkey, "0");
     setLocalStrage();
     localStorage.setItem(scorekey, "0");
@@ -65,15 +63,15 @@ function setLocalStrage() {
   // 自分の key を設定する
   const key = "kanji_clear";
 
-  if (0 < score === 100) {
+  if (0 < score === 20) {
     output = 20;
-  } else if (score === 200) {
+  } else if (score === 40) {
     output = 40;
-  } else if (score === 300) {
+  } else if (score === 60) {
     output = 60;
-  } else if (score === 400) {
+  } else if (score === 80) {
     output = 80;
-  } else if (score === 500) {
+  } else if (score === 100) {
     output = 100;
   } else {
     output = 0;
@@ -96,7 +94,6 @@ function changeUI2() {
   questionnumber = Number(questionnumbertext);
   if (questionnumber - 1 < 5) {
     console.log(questionnumber);
-    // let a = document.getElementById("qn");
     document.getElementById("qs").textContent = question[questionnumber - 1];
     questionnumber += 1;
   } else {
@@ -108,6 +105,7 @@ function changeUI2() {
     if (form) {
       form.remove();
     }
+    createButton();
     localStorage.setItem(questionnumberkey, "0");
     setLocalStrage();
   }
@@ -116,4 +114,20 @@ function changeUI2() {
   if (input) {
     input.value = answer[questionnumber - 2];
   }
+}
+function createButton() {
+  console.log("createButton");
+  // ボタン要素を作成
+  const button = document.createElement("button");
+  button.textContent = "リトライ";
+
+  // ボタンに onclick 属性を設定
+  button.onclick = function () {
+    gonext(); // この関数はページをリロードするか、次のページに進むようにする
+  };
+
+  // ボタンのスタイルを設定
+  button.style.width = "200px"; // ボタンの横幅を200ピクセルに設定
+  // ページの一番下にボタンを追加
+  document.body.appendChild(button);
 }
