@@ -7,6 +7,9 @@
         <link rel="stylesheet" href="../globalstyle/buttonstyle.css" />
         <link rel="stylesheet" href="./style/color.css" />
         <link rel="stylesheet" href="./style/style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet" />
     </head>
     <body>
         <div class="returnButton" onclick="returnHome()"><img src="../img/returnButton.png" /></div>
@@ -20,7 +23,7 @@
                             <circle cx="12" cy="12" r="9" fill="black" />
                         </mask>
                     </defs>
-                    <circle cx="12" cy="12" r="12" stroke-width="1" ></circle>
+                    <circle cx="12" cy="12" r="12" stroke-width="1"></circle>
                 </svg>
                 <svg class="red" width="24" height="24">
                     <circle cx="12" cy="12" r="12" stroke-width="1" mask="url(#miniDonut)"></circle>
@@ -41,6 +44,7 @@
                 <circle cx="80" cy="80" r="80" stroke-width="1"></circle>
             </svg>
         </div>
+        <p class="center-text" onClick="clickCenterButton()">謎</p>
         <div class="gameMessage">
             <p class="red">Click Center Button</p>
         </div>
@@ -54,6 +58,7 @@
     <script>
         function clickCenterButton() {
             document.getElementsByClassName("circleBox")[0].classList.add("popOutAnimation");
+            document.getElementsByClassName("center-text")[0].classList.add("popOutAnimation");
             setLocalStrage(1);
             changeStage(0);
         }

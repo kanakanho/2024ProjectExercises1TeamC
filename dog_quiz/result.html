@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Results</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        color: #333;
+        background-color: #f0f0f0;
+        text-align: center;
+      }
+      .correct {
+        color: green;
+      }
+      .incorrect {
+        color: red;
+      }
+      .quiz {
+        border-bottom: 1px solid #ccc;
+        padding: 20px;
+      }
+      .results {
+        margin-top: 20px;
+      }
+      button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="result-summary"></h1>
+    <div id="result-details" class="results"></div>
+    <button onclick="menu()">最初に戻る</button>
+    <script src="menu.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        /*CSS用
+        localStorage.setItem(
+          "correctAnswers",
+          JSON.stringify([
+            true,
+            false,
+            false,
+            true,
+            false,
+            true,
+            true,
+            false,
+            false,
+            true,
+          ])
+        );*/
+
+        const correctAnswers =
+          JSON.parse(localStorage.getItem("correctAnswers")) || [];
+        const totalQuestions = correctAnswers.length;
+        const correctCount = correctAnswers.filter(
+          (answer) => answer === true
+        ).length;
+
+        // Update the result summary
+        const resultSummary = document.getElementById("result-summary");
+        resultSummary.textContent = `${totalQuestions}問中${correctCount}問正解！`;
+
+        // Update the result details
+        const resultDetails = document.getElementById("result-details");
+        correctAnswers.forEach((answer, index) => {
+          const questionNumber = index + 1;
+          const resultText = answer ? "〇" : "×";
+          const resultClass = answer ? "correct" : "incorrect";
+
+          const resultItem = document.createElement("div");
+          resultItem.innerHTML = `<div class="quiz">${questionNumber}問目: <span class="${resultClass}">${resultText}</span> <a href="#">正解と問題文を確認</a></div>`;
+          resultDetails.appendChild(resultItem);
+        });
+      });
+    </script>
+  </body>
+</html>
