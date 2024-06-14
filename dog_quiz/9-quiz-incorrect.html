@@ -4,59 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>不正解</title>
-    <style>
-      body {
-        overflow: hidden;
-        background-image: url("0-img-background.jpg");
-        background-size: cover;
-      }
-      .dog {
-        width: 700px;
-        vertical-align: middle;
-        border-radius: 40px;
-      }
-      .incorrect {
-        /*フォントの太さ*/
-        font-weight: bold;
-        font-size: 120px;
-        color: #2c0ab4;
-        /*フォントの縁取り*/
-        -webkit-text-stroke: 4px #000;
-        /*画像の横に表示*/
-        display: inline-block;
-        vertical-align: middle;
-      }
-      .text {
-        margin-top: 3%;
-        background-color: #63b3ed;
-        font-size: x-large;
-        color: aliceblue;
-        /*下までbackground-colorをつける*/
-        height: calc(100vh - 120px);
-        padding: 40px;
-        box-sizing: border-box;
-      }
-      .next {
-        position: absolute;
-        right: 5%;
-        vertical-align: top;
-        font-size: 50px;
-        color: #000;
-        white-space: nowrap;
-        background-color: #faf089;
-        margin-left: 20%;
-      }
-    </style>
+    <link rel="stylesheet" href="./style/incorrect.css" />
   </head>
   <body>
-    <img src="9-img-spiz.jpg" class="dog" />
-    <div class="incorrect">不正解</div>
-    <button class="next" onclick="nextQuiz()">次へ</button>
-    <p class="text">
-      日本原産の犬種である。耳が立ち、口吻部が尖ったスピッツの系統の犬で、
-      白い被毛を特徴とする中型の犬である。また、真っ白な毛並みや黒く大きな眼が愛され、
-      第二次世界大戦後の混乱期から高度成長期にかけて、日本国内で家庭犬として爆発的に流行した。
-    </p>
+    <div class="quizbox">
+      <div class="flexbox">
+        <div><img src="./img/9-img-spiz.jpg" class="dog" /></div>
+        <div class="incorrect">不正解</div>
+        <div class="nextButton" onclick="nextQuiz()">
+          <img src="./img/nextButton.png" />
+        </div>
+      </div>
+      <div>
+        <p class="text">
+          日本原産の犬種である。耳が立ち、口吻部が尖ったスピッツの系統の犬で、
+          白い被毛を特徴とする中型の犬である。また、真っ白な毛並みや黒く大きな眼が愛され、
+          第二次世界大戦後の混乱期から高度成長期にかけて、日本国内で家庭犬として爆発的に流行した。
+        </p>
+      </div>
+    </div>
+    <script src="./src/nextQuiz.js"></script>
   </body>
-  <script src="./nextQuiz.js"></script>
 </html>

@@ -4,59 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>正解</title>
-    <style>
-      body {
-        overflow: hidden;
-        background-image: url("0-img-background.jpg");
-        background-size: cover;
-      }
-      .dog {
-        width: 700px;
-        vertical-align: middle;
-        border-radius: 40px;
-      }
-      .correct {
-        /*フォントの太さ*/
-        font-weight: bold;
-        font-size: 120px;
-        color: #bb1919;
-        /*フォントの縁取り*/
-        -webkit-text-stroke: 4px #000;
-        /*画像の横に表示*/
-        display: inline-block;
-        vertical-align: middle;
-      }
-      .text {
-        margin-top: 3%;
-        background-color: #63b3ed;
-        font-size: x-large;
-        color: aliceblue;
-        /*下までbackground-colorをつける*/
-        height: calc(100vh - 120px);
-        padding: 40px;
-        box-sizing: border-box;
-      }
-      .next {
-        position: absolute;
-        right: 5%;
-        vertical-align: top;
-        font-size: 50px;
-        color: #000;
-        white-space: nowrap;
-        background-color: #faf089;
-        margin-left: 20%;
-      }
-    </style>
+    <link rel="stylesheet" href="./style/correct.css" />
   </head>
   <body>
-    <img src="4-img-colli.jpg" class="dog" />
-    <div class="correct">正解</div>
-    <button class="next" onclick="nextQuiz()">次へ</button>
-    <p class="text">
-      主にスコットランド原産とされる犬種で牧羊犬である。
-      米国で映画やTVドラマの『名犬ラッシー』が大ヒットしたことによって、
-      この犬種が広く知られるように。日本でもこのTV番組によりコリーブームが起きました。
-    </p>
+    <div class="quizbox">
+      <div class="flexbox">
+        <div><img src="./img/4-img-colli.jpg" class="dog" /></div>
+        <div class="correct">正解</div>
+        <div class="nextButton" onclick="nextQuiz()">
+          <img src="./img/nextButton.png" />
+        </div>
+      </div>
+      <div>
+        <p class="text">
+          主にスコットランド原産とされる犬種で牧羊犬である。
+          米国で映画やTVドラマの『名犬ラッシー』が大ヒットしたことによって、
+          この犬種が広く知られるように。日本でもこのTV番組によりコリーブームが起きた。
+        </p>
+      </div>
+    </div>
+    <script src="./src/nextQuiz.js"></script>
   </body>
-  <script src="./nextQuiz.js"></script>
 </html>
