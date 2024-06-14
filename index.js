@@ -65,7 +65,6 @@ function scoreClear() {
 }
 
 function dowloadImg(value) {
-  console.log("動いたよ");
   if (value === 100) {
     document.getElementById(
       "dowloadImg"
