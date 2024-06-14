@@ -19,57 +19,38 @@ body {
   width: 80px;
   height: 80px;
 }
-
-.correct {
-  color: red;
-  font-size: 500%;
-  align-items: center;
+.correctContainer {
   text-align: center;
   padding: 5%;
   margin: 7%;
-  background: #c6e4ff;
-  border-bottom: solid 6px #aac5de;
-  border-radius: 1%;
+  background: #ffffff;
+  border-radius: 3%;
+}
+.correct {
+  color: red;
+  font-size: 500%;
 }
 .result {
-  align-items: center;
-  text-align: center;
   padding: 2%;
-  margin: 7%;
-  background: #c6e4ff;
-  border-bottom: solid 6px #aac5de;
-  border-radius: 1%;
+  margin: 2%;
 }
 .incorrect {
   color: blue;
   font-size: 500%;
 }
 .explanation {
-  align-items: center;
-  text-align: center;
   font-size: 250%;
   padding: 2%;
-  margin: 7%;
-  color: #5989cf;
-  background: #c6e4ff;
-  border-bottom: solid 6px #aac5de;
-  border-radius: 1%;
+  margin: 3%;
 }
 
-.nextButton {
-  /* text-align: right; */
-  position: fixed;
-  left: 88%;
-  bottom: 2.5%;
-  width: 10%;
-  height: 5%;
-}
-.nextButton button {
-  width: 100%;
-  height: 100%;
-  font-size: 100%;
+button {
   /* 外側を丸くする */
+  width: 40%;
+  height: 50px;
+  font-size: 100%;
   border-radius: 20px;
-  border: 1px solid rgb(128, 0, 0);
+  color: white;
   background-color: rgb(251, 73, 73);
+  border: rgb(251, 73, 73);
 }
