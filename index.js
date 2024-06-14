@@ -23,7 +23,7 @@ function backgroundImg(value) {
   const num = 100 - value;
   for (let element of backElements) {
     element.style.width = `${num}vw`;
-    element.style.translate = `-${value/2}vw`;
+    element.style.translate = `-${value / 2}vw`;
   }
 }
 
@@ -52,6 +52,7 @@ function getLocalStrages() {
   sum += Number(dog_value) * 0.25;
   console.log(sum);
   backgroundImg(sum);
+  dowloadImg(sum);
 }
 
 getLocalStrages();
@@ -60,5 +61,16 @@ function scoreClear() {
   const result = confirm("本当に削除しますか");
   if (result) {
     localStorage.clear();
+  }
+}
+
+function dowloadImg(value) {
+  console.log("動いたよ");
+  if (value === 100) {
+    document.getElementById(
+      "dowloadImg"
+    ).innerHTML = `<a href="img/castle.jpg" download="image.png">
+    <button style="padding: 5px">画像GET</button>
+</a>`;
   }
 }
