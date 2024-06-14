@@ -8,19 +8,23 @@
     <style>
       body {
         text-align: center;
-      }
-      .form {
-        gap: 110px;
+        background-image: url("book.jpeg");
+        background-size: 100vw;
+        overflow: hidden;
       }
       .form {
         display: flex;
         justify-content: center;
         flex-direction: column;
+        gap: 40px;
       }
-      .button {
-        height: 2em;
-        width: 6em;
-        font-size: 80px;
+      button {
+        width: 100%;
+        font-size: 2rem;
+        border-radius: 40px;
+        border: none;
+        background-color: hsl(0, 0%, 30%);
+        color: white;
       }
       .title {
         font-size: 100px;
@@ -32,12 +36,17 @@
         margin: 0;
       }
       .quiz-answer {
-        margin-top: 100px;
-        width: 700px;
+        text-align: center;
+        display: block;
+        margin: 0;
+        padding: 0;
         height: 1.5em;
       }
       input[type="text"] {
         font-size: 500%;
+      }
+      main {
+        margin: 10% 20%;
       }
     </style>
   </head>
@@ -50,17 +59,16 @@
       <div class="inner-block">
         <h1 class="title" id="qn">第1問</h1>
         <p class="quiz-question" id="qs">呪術</p>
-        <div class="form">
-          <div>
-            <input type="text" class="quiz-answer" onchange="getText()" />
-          </div>
-          <div>
-            <button class="button" onclick="pushEnter()">決定</button>
-          </div>
+        <div class="form" id="Form">
+          <input type="text" class="quiz-answer" onchange="getText()" />
+          <button class="button" onclick="pushEnter()">決定</button>
         </div>
       </div>
     </main>
   </body>
   <script src="src.js"></script>
   <script src="../globalsrc/returnHome.js"></script>
+  <script>
+    changeUI();
+  </script>
 </html>

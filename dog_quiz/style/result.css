@@ -1,0 +1,62 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url("../img/0-img-background.jpg");
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.3);
+    background-blend-mode: lighten;
+    color: #333;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .correct {
+    color: #e53e3e;
+    font-weight: bold;
+  }
+  .incorrect {
+    color: #1654da;
+    font-weight: bold;
+  }
+  h1 {
+    margin-top: 30px;
+    font-size: 40px;
+    text-shadow: white 0 0 8px;
+  }
+  #gameClear{
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: white 0 0 8px;
+  }
+  .quiz {
+    border-bottom: 1px solid #ccc;
+    padding: 20px;
+  }
+  .container{
+    text-align: center;
+    margin: 2% 30%;
+  }
+  .resultbox {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: inline-block;
+    width: 100%;
+  }
+  #resultDetails{
+    font-size: 2vw;
+  }
+  button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    /*ボーダーをつけない*/
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
