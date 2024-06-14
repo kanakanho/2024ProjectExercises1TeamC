@@ -39,7 +39,12 @@
       document
         .getElementsByClassName("circleBox")[0]
         .classList.add("popOutAnimation");
-      window.location.href = "./index.html";
+      document
+        .getElementsByClassName("center-text")[0]
+        .classList.add("popOutAnimation");
+      setTimeout(() => {
+        window.location.href = "./index.html";
+      }, 1300);
     }
   </script>
 </html>
