@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,25 +8,47 @@
     <style>
       body {
         text-align: center;
+        background-image: url("book.jpeg");
+        background-size: 100vw;
+        overflow: hidden;
       }
-      .botton {
-        width: 10em;
-        height: 2em;
-        font-size: xx-large;
+      .form {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 40px;
       }
-      .quiz-question-number {
-        font-size: 30px;
+      button {
+        width: 100%;
+        font-size: 2rem;
+        border-radius: 40px;
+        border: none;
+        background-color: hsl(0, 0%, 30%);
+        color: white;
       }
       .title {
         font-size: 100px;
-        color: blueviolet;
+        color: blue;
+        margin: 0;
+      }
+      .quiz-question {
+        font-size: 100px;
+        margin: 0;
       }
       .quiz-answer {
-        width: 300px;
-        /* height: 10em; */
+        display: block;
+        margin: 0;
+        padding: 0;
+        height: 1.5em;
       }
       input[type="text"] {
-        font-size: 200%;
+        font-size: 500%;
+        text-align: center;
+        color: blueviolet;
+        cursor: not-allowed;
+      }
+      main {
+        margin: 10% 20%;
       }
     </style>
   </head>
@@ -37,18 +59,25 @@
     </div>
     <main class="quiz outer-block">
       <div class="inner-block">
-        <h1 class="title">漢字クイズ</h1>
-        <div class="quiz-content">
-          <p class="quiz-question-number" id="qn">表示される漢字の読みを</p>
-          <h1>ひらがなで</h1>
-          <p class="quiz-question-number">入力してください</p>
+        <h1 class="title" id="qn">不正解</h1>
+        <p class="quiz-question" id="qs">呪術</p>
+        <div class="form">
+          <input
+            type="text"
+            class="quiz-answer"
+            id="form"
+            id="answer"
+            value="じゅじゅつ"
+            readonly
+          />
+          <button class="button" onclick="gonext()">次へ</button>
         </div>
-        <a href="index.html"
-          ><button class="botton" onclick="pushEnter()">分かった！！</button></a
-        >
       </div>
     </main>
   </body>
   <script src="src.js"></script>
   <script src="../globalsrc/returnHome.js"></script>
+  <script>
+    changeUI2();
+  </script>
 </html>

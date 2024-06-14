@@ -8,16 +8,23 @@
     <link rel="stylesheet" href="./style/color.css" />
     <link rel="stylesheet" href="./style/style.css" />
     <style>
-      body,
-      html {
+      body {
         margin: 0;
         padding: 0;
         /*スクロールバー削除*/
         overflow: hidden;
+        background-image: url("./0-img-background.jpg");
+        background-size: cover;
+        /*画像を薄くする（白に近づける）*/
+        background-color: rgba(255, 255, 255, 0.3);
+        background-blend-mode: lighten;
       }
       .menuken {
         border-radius: 1000px;
         width: 160px;
+      }
+      .gameMessage p {
+        text-shadow: gray 0 4px 16px;
       }
     </style>
   </head>
@@ -73,7 +80,9 @@
       document
         .getElementsByClassName("circleBox")[0]
         .classList.add("popOutAnimation");
-      location.href = quizzes[0];
+      setTimeout(() => {
+        location.href = quizzes[0];
+      }, 1300);
     }
   </script>
 </html>
