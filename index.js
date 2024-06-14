@@ -5,13 +5,13 @@ const moveGameWindow = (gameName) => {
     window.location = "./quiz/";
   } else if (gameName == "game2") {
     console.log("game2");
-    window.location = "./castle-quiz/top.html";
+    window.location = "./castle-quiz/start.html";
   } else if (gameName == "game3") {
     console.log("game3");
-    window.location = "./kanji/";
+    window.location = "./kanji/start.html";
   } else if (gameName == "game4") {
     console.log("game4");
-    window.location = "./dog_quiz/0-menu.html";
+    window.location = "./dog_quiz/start.html";
   } else {
     console.error("ゲームが見つからず遷移できませんでした");
   }
