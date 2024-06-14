@@ -7,33 +7,14 @@
     <link rel="stylesheet" href="../globalstyle/buttonstyle.css" />
     <link rel="stylesheet" href="./style/color.css" />
     <link rel="stylesheet" href="./style/style.css" />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        /*スクロールバー削除*/
-        overflow: hidden;
-        background-image: url("./0-img-background.jpg");
-        background-size: cover;
-        /*画像を薄くする（白に近づける）*/
-        background-color: rgba(255, 255, 255, 0.3);
-        background-blend-mode: lighten;
-      }
-      .menuken {
-        border-radius: 1000px;
-        width: 160px;
-      }
-      .gameMessage p {
-        text-shadow: gray 0 4px 16px;
-      }
-    </style>
+    <link rel="stylesheet" href="./style/start.css" />
   </head>
   <body>
     <div class="returnButton" onclick="returnHome()">
       <img src="../img/returnButton.png" />
     </div>
     <div class="circleBox" onclick="clickCenterButton()">
-      <img src="0-img-menuken.JPG" class="menuken buttonCircle" />
+      <img src="./img/0-img-menuken.JPG" class="menuken buttonCircle" />
     </div>
     <div class="gameMessage">
       <p class="green">Click Center Button</p>
@@ -43,46 +24,5 @@
     </div>
   </body>
   <script src="../globalsrc/returnHome.js"></script>
-  <script>
-    //クイズの配列
-    const quizzes = [
-      "1-quiz.html",
-      "2-quiz.html",
-      "3-quiz.html",
-      "4-quiz.html",
-      "5-quiz.html",
-      "6-quiz.html",
-      "7-quiz.html",
-      "8-quiz.html",
-      "9-quiz.html",
-      "10-quiz.html",
-    ];
-
-    //シャッフル関数
-    function shuffle(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-    }
-
-    //クイズの配列をシャッフルする
-    shuffle(quizzes);
-
-    //JSON.stringifyにより配列を文字列でローカルストレージに保存
-    localStorage.setItem("quizzes", JSON.stringify(quizzes));
-    //ローカルストレージの初期値
-    localStorage.setItem("currentQuizIndex", "0");
-    localStorage.setItem("correctAnswers", "[]");
-    localStorage.setItem("dog_quiz_clear", "0");
-
-    function clickCenterButton() {
-      document
-        .getElementsByClassName("circleBox")[0]
-        .classList.add("popOutAnimation");
-      setTimeout(() => {
-        location.href = quizzes[0];
-      }, 1300);
-    }
-  </script>
+  <script src="./src/start.js"></script>
 </html>
