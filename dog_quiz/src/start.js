@@ -28,9 +28,9 @@ localStorage.setItem("quizzes", JSON.stringify(quizzes));
 //ローカルストレージの初期値
 localStorage.setItem("currentQuizIndex", "0");
 localStorage.setItem("correctAnswers", "[]");
-localStorage.setItem("dog_quiz_clear", "0");
 
 function clickCenterButton() {
+  localStorage.setItem("dog_quiz_clear", "0");
   document
     .getElementsByClassName("circleBox")[0]
     .classList.add("popOutAnimation");
